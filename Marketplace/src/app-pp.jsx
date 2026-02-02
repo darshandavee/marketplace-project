@@ -14,7 +14,6 @@ const products = [
     price: 111000, 
   },
   {
-    id: 2,
     title: "Magna Carta",
     description:
       "The original Magna Carta, established in the year 1215 much to King John's dismay.",
