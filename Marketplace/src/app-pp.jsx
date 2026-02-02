@@ -26,9 +26,7 @@ const products = [
     id: 3,
     title: "Temporal Stabiliser",
     description: "A unique device from 2540 which can allow the adjustment of persons to specific time eras, combatting the time-sickness associated with Temporal Shifting. Authenticated by the DTS and favoured by Zaphod Beetlebrox",
-    image: "/public/Temporal Stabiliser.jpg",
-    authenticity: False,
-    price: 65902,
+    image: "/movies/movie3.jpg",
   },
   {
      id: 4,
