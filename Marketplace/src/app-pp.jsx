@@ -11,7 +11,7 @@ const products = [
       "Sword carried by Alexander the Great during his Thracian campaign around 330BCE",
     image: "/public/AtG_Sword.jpg/",
     authenticity: True,
-    price: "111000 TimeCredits" 
+    price: 111000, 
   },
   {
     id: 2,
@@ -27,7 +27,6 @@ const products = [
     title: "Temporal Stabiliser",
     description: "A unique device from 2540 which can allow the adjustment of persons to specific time eras, combatting the time-sickness associated with Temporal Shifting. Authenticated by the DTS and favoured by Zaphod Beetlebrox",
     image: "/movies/movie3.jpg",
-    
   },
   {
      id: 4,
