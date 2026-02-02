@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
-// import ProductCard from "./components/MovieCard";
+import ProductCard from "./components/ProductCard";
 // import MovieDetails from "./components/MovieDetails";
 
 const products = [
@@ -26,6 +26,8 @@ const products = [
     title: "Temporal Stabiliser",
     description: "A unique device from 2540 which can allow the adjustment of persons to specific time eras, combatting the time-sickness associated with Temporal Shifting. Authenticated by the DTS and favoured by Zaphod Beetlebrox",
     image: "/movies/movie3.jpg",
+    authenticity: True,
+    price: 9800,
   },
   {
      id: 4,
