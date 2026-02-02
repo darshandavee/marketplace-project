@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { useState, useEffect, useRef } from "react";
 import ProductCard from "./components/ProductCard";
 // import MovieDetails from "./components/MovieDetails";
@@ -9,8 +9,8 @@ const products = [
     title: "Alexander the Great's Sword",
     description:
       "Sword carried by Alexander the Great during his Thracian campaign around 330BCE",
-    image: "/public/AtG_Sword.jpg/",
-    authenticity: True,
+    image: "AtG_Sword.jpg",
+    // authenticity: True,
     price: 111000, 
   },
   {
@@ -18,15 +18,15 @@ const products = [
     description:
       "The original Magna Carta, established in the year 1215 much to King John's dismay.",
     image: "/public/magna-carta.png",
-    authenticity: False,
+    // authenticity: False,
     price: 2200,
   },
   {
     id: 3,
     title: "Temporal Stabiliser",
     description: "A unique device from 2540 which can allow the adjustment of persons to specific time eras, combatting the time-sickness associated with Temporal Shifting. Authenticated by the DTS and favoured by Zaphod Beetlebrox",
-    image: "/movies/movie3.jpg",
-    authenticity: True,
+    image: "/public/Temporal Stabiliser.jpg",
+    // authenticity: True,
     price: 9800,
   },
   {
@@ -35,7 +35,7 @@ const products = [
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "/public/watch.jpg",
-    authenticity: True,
+    // authenticity: True,
     price: 9800,
   },
 ];
@@ -69,7 +69,7 @@ export default function App() {
           onSelect={() => setSelectedProduct(product)}
         />
         ))}
-
+        console.log(product)
         {/* {selectedProduct && 
         <div ref={detailsRef}> 
           <MovieDetails movie={selectedMovie} onClose={() => setSelectedMovie(null)}/>
