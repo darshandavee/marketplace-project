@@ -4,7 +4,7 @@ import './Navbar.css'
 const Navbar = () => {
     return(
         <div className="navbar">
-            <img src="" alt="" className="logo" />
+            <img src="/timeazon.png" alt="Website Logo" className="logo" />
             <ul>
                 <li>Homepage</li>
                 <li>Shop</li>
@@ -17,11 +17,9 @@ const Navbar = () => {
                 <img src="" alt="" />
             </div>
 
-            <img src="" alt="" className="toggle-icon"></img>
         </div>
 
         
     )
 }
-
-export default Navbar
+    export default Navbar

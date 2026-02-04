@@ -5,7 +5,7 @@ const App = () =>{
   return(
     <div className='container'>
       <Navbar/>
-    </div>
+    </div>    
   )
 }
 export default App
