@@ -12,7 +12,7 @@ const products = [
     image: "AtG_Sword.jpg",
     // authenticity: True,
     price: 111000, 
-  },z
+  },
   {
     title: "Magna Carta",
     description:
