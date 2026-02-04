@@ -12,7 +12,7 @@ const products = [
     image: "/public/AtG_Sword.jpg/",
     authenticity: True,
     price: 111000, 
-  },
+  },z
   {
     title: "Magna Carta",
     description:
@@ -42,38 +42,38 @@ const products = [
 
 
 export default function App() {
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const detailsRef = useRef(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+//   const detailsRef = useRef(null);
 
-  useEffect(() => {
-    if (!selectedMovie) return;
-    if (!detailsRef.current) return;
+//   useEffect(() => {
+//     // if (!selectedProduct) return;
+//     if (!detailsRef.current) return;
 
-    detailsRef.current.scrollIntoView({
-      behaviour: "smooth",
-      block: "start",
-    });
-  }, [selectedMovie]);
+//     detailsRef.current.scrollIntoView({
+//       behaviour: "smooth",
+//       block: "start",
+//     });
+//   }, [selectedMovie]);
 
   return (
     <div className="app">
-      <h1>Netflix Cards</h1>
+      <h1>Product Cards</h1>
 
-      <div className="movie-row">
-        {movies.map((movie) => (
-          <MovieCard
-          key={movie.id}
-          image={movie.image}
-          title={movie.title}
-          description={movie.description}
-          onSelect={() => setSelectedMovie(movie)}
+      <div className="product-row">
+        {products.map((product) => (
+          <ProductCard
+          key={product.id}
+          image={product.image}
+          title={product.title}
+          description={product.description}
+          onSelect={() => setSelectedProduct(product)}
         />
         ))}
 
-        {selectedMovie && 
+        {/* {selectedProduct && 
         <div ref={detailsRef}> 
           <MovieDetails movie={selectedMovie} onClose={() => setSelectedMovie(null)}/>
-        </div>}
+        </div>} */}
 
       </div>
     </div>
