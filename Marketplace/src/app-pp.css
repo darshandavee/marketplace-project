@@ -1,0 +1,29 @@
+.product-row {
+background-color: blue;
+max-width: auto;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+
+.product-card img {
+    width: 31vw;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: .65rem;
+    border-bottom-left-radius: 0;
+    display: block;
+    margin: auto;
+    margin-top: -1rem;
+    
+}
+.product-card {
+    background-color: rgb(217, 236, 43);
+    margin: 0.5rem;   
+    border: 0.5vw solid #000;
+    border-radius: 1rem;
+    height: 22vw;
+    overflow: hidden;
+    padding-top: 1rem;
+}
+
+
