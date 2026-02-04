@@ -4,7 +4,7 @@ export default function ProductCard(props) {
         <img src={props.image} alt={props.title} />
         <h3>{props.title}</h3>
         <h4>{props.price}</h4>
-        {/* <p>{props.description}</p> */}
+        <p>{props.description}</p>
       </div>
     );
 }
