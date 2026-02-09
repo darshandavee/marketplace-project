@@ -174,7 +174,7 @@ const handleClick = (product) => {
           image={product.image}
           title={product.title}
           price={product.price}
-          button="+"
+         
           // description={product.description}
           onClick={() => handleClick(product)}
         />
