@@ -1,3 +1,10 @@
 # marketplace-project
 A repo for our marketplace project
-Cloned by Colin
+
+
+# Colour Palette
+- #000000
+- #112134
+- #0869C2
+- #25f0ff
+- f1feff
