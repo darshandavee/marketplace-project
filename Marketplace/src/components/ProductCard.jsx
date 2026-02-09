@@ -5,7 +5,8 @@ export default function ProductCard({product, onClick}) {
         onClick={onClick} style={{ cursor: 'pointer'}}/>
         <h3 className="title">{product.title}</h3>
         <h4 className="price">{product.price}</h4>
-        <p>{product.description}</p>
+        <p className="description">{product.description}</p>
+        <button className="addToCart">+</button>
       </div>
     );
 }

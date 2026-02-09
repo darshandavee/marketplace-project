@@ -15,7 +15,7 @@ const products = [
   },
   {
     id: 2,
-    title: "Magna Carta",
+    title: "Magna Carta, reproduction",
     description:
       "The original Magna Carta, established in the year 1215 much to King John's dismay. ",
     image: "magna-carta.png",
@@ -24,7 +24,7 @@ const products = [
   },
   {
     id: 3,
-    title: "Temporal Stabiliser",
+    title: "Temporal Stabiliser version 7.0",
     description: "A unique device from 2540 which can allow the adjustment of persons to specific time eras, combatting the time-sickness associated with Temporal Shifting. Authenticated by the DTS and favoured by Zaphod Beetlebrox",
     image: "Temporal Stabiliser.jpg",
     // authenticity: True,
@@ -153,17 +153,6 @@ const products = [
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
-//   const detailsRef = useRef(null);
-
-//   useEffect(() => {
-//     // if (!selectedProduct) return;
-//     if (!detailsRef.current) return;
-
-//     detailsRef.current.scrollIntoView({
-//       behaviour: "smooth",
-//       block: "start",
-//     });
-//   }, [selectedMovie]);
 
 const handleClick = (product) => {
   setSelectedProduct(product);
@@ -181,9 +170,11 @@ const handleClick = (product) => {
         {products.map((product) => (
           <ProductCard className = "productCard"
           key={product.id}
+          product={product}
           image={product.image}
           title={product.title}
           price={product.price}
+          button="+"
           // description={product.description}
           onClick={() => handleClick(product)}
         />
@@ -191,7 +182,7 @@ const handleClick = (product) => {
     
         {selectedProduct ? (
           <div className="product-title">
-            <h3>This is anything</h3>
+            <h3>{selectedProduct.title}</h3>
             </div>)
              : (
               <p className="productPrompt">Please select this product!</p>
@@ -199,7 +190,22 @@ const handleClick = (product) => {
              )}
 
       </div>
+
+
     </div>
+
+
   );
 }
 
+//   const detailsRef = useRef(null);
+
+//   useEffect(() => {
+//     // if (!selectedProduct) return;
+//     if (!detailsRef.current) return;
+
+//     detailsRef.current.scrollIntoView({
+//       behaviour: "smooth",
+//       block: "start",
+//     });
+//   }, [selectedMovie]);
