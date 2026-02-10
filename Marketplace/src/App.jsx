@@ -6,19 +6,19 @@ import Navbar from "./components/Navbar";
 const homepageItems = [
   {
     id: 1,
-    title: "PAST",
+    title: "SHOP",
     description: "PAST",
     image: "../public/past.webp",
   },
   {
     id: 2,
-    title: "PRESENT",
+    title: "SHOP",
     description: "PRESENT",
     image: "../public/present.jpg",
   },
   {
     id: 3,
-    title: "FUTURE",
+    title: "SHOP",
     description: "FUTURE",
     image: "../public/future.jpg",
   },
