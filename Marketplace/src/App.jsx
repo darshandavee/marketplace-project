@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import MovieCard from "./components/hmpagecard";
 import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
 
 const movies = [
   {
@@ -27,6 +28,10 @@ const movies = [
 const App = () => {
   return (
     <>
+    <Routes>
+      <Route path="/" element={<ProductList />} />
+      <Route path="/product/:id" element={<ProductPage />} />
+    </Routes>
       <Navbar />
 
       <div className="app">

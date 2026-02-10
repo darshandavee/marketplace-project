@@ -3,6 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import ProductCard from "./ProductCard";
 // import MovieDetails from "./components/MovieDetails";
 import "./app-pp.css";
+
+import { Link } from "react-router-dom";
+
 const products = [
   {
     id: 1,
@@ -164,10 +167,14 @@ const handleClick = (product) => {
 
   return (
     <div className="app">
+    
       <h1>Product Cards</h1>
 
       <div className="product-row" >
         {products.map((product) => (
+          <Link key={product.id} to={`/product/${product.id}`}>
+    
+  
           <ProductCard className = "productCard"
           key={product.id}
           product={product}
@@ -178,6 +185,7 @@ const handleClick = (product) => {
           // description={product.description}
           onClick={() => handleClick(product)}
         />
+        </Link>
         ))}
     
         {selectedProduct ? (
