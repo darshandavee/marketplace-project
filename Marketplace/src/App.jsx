@@ -1,7 +1,9 @@
 import React from "react";
 import "./App.css";
+import AppPp from "./components/app-pp";
 import MovieCard from "./components/hmpagecard";
 import Navbar from "./components/Navbar";
+import ProductCard from './components/ProductCard'
 import { Routes, Route } from "react-router-dom";
 
 const movies = [
@@ -29,8 +31,8 @@ const App = () => {
   return (
     <>
     <Routes>
-      <Route path="/" element={<ProductList />} />
-      <Route path="/product/:id" element={<ProductPage />} />
+      <Route path="/" element={<AppPp />} />
+      <Route path="/product/:id" element={<ProductCard />} />
     </Routes>
       <Navbar />
 
