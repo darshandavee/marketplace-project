@@ -189,7 +189,8 @@ const handleClick = (product) => {
         />
         </Link>
         ))}
-    
+   
+
         {selectedProduct ? (
           <div className="product-title">
             <h3>{selectedProduct.title}</h3>

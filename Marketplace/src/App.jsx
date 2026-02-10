@@ -30,10 +30,7 @@ const movies = [
 const App = () => {
   return (
     <>
-    <Routes>
-      <Route path="/" element={<AppPp />} />
-      <Route path="/product/:id" element={<ProductCard />} />
-    </Routes>
+    
       <Navbar />
 
       <div className="app">
@@ -45,10 +42,17 @@ const App = () => {
               title={movie.title}
               description={movie.description}
             />
+
+      
           ))}
         </div>
       </div>
+    <Routes>
+      <Route path="/" element={<AppPp />} />
+      <Route path="/product/:id" element={<ProductCard />} />
+    </Routes>
     </>
+
   );
 };
 
