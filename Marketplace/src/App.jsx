@@ -8,19 +8,19 @@ const homepageItems = [
     id: 1,
     title: "PAST",
     description: "PAST",
-    image: "",
+    image: "../public/past.webp",
   },
   {
     id: 2,
     title: "PRESENT",
     description: "PRESENT",
-    image: "",
+    image: "../public/present.jpg",
   },
   {
     id: 3,
     title: "FUTURE",
     description: "FUTURE",
-    image: "",
+    image: "../public/future.jpg",
   },
 ];
 
