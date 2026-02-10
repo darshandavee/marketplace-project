@@ -1,5 +1,5 @@
 import React from "react";
-import './Navbar.css'
+import "./Navbar.css";
 
 const Navbar = () => {
     return(
@@ -13,14 +13,25 @@ const Navbar = () => {
                 <li>Login</li>
             </ul>
 
-            <div className="Search-bar">
-                <input type="text" placeholder="Search"/>
-                <img src="" alt="" />
-            </div>
-
-        </div>
-
+      <ul>
+        <li>Homepage</li>
+        <li>Shop</li>
+        <li>Lookbook</li>
+        <li>Contact Us</li>
         
-    )
-}
-    export default Navbar
+      </ul>
+
+      <div className="Search-bar">
+        <input type="text" placeholder="Search" />
+      </div>
+
+      {/* Cart Button */}
+      <div className="cart">
+        <img src="/shopping-cart.png" alt="Cart" />
+        <span className="cart-count">0</span>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

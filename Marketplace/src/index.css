@@ -1,13 +1,16 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.container{
-  width: 100vw;
+body {
+  width: 100%;
+  height: 100%;
+  background: #d1c897;
+}
+
+.app {
   min-height: 100vh;
-  background: #ede8d0;
 }
-
