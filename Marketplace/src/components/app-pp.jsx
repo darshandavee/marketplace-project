@@ -1,6 +1,6 @@
 // import "./App.css";
 import { useState, useEffect, useRef } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from "./components/ProductCard";
 // import MovieDetails from "./components/MovieDetails";
 import "./app-pp.css";
 const products = [
@@ -150,7 +150,7 @@ const products = [
 ];
 
 
-export default function Apppp() {
+export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
 
