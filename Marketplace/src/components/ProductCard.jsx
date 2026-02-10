@@ -7,6 +7,9 @@ export default function ProductCard({product, onClick}) {
         <h4 className="price">{product.price}</h4>
         <p className="description">{product.description}</p>
         {/* <NavLink to="./test.txt"><button className="addToCart">+</button></NavLink> */}
+        <button className="addToCart">+</button>
+        <p className="starrating">☆☆☆</p>
+       
       </div>
     );
 }
