@@ -1,26 +1,26 @@
 import React from "react";
 import "./App.css";
-import MovieCard from "./components/hmpagecard";
+import HomePageCard from "./components/homepagecard";
 import Navbar from "./components/Navbar";
 
-const movies = [
+const homepageItems = [
   {
     id: 1,
     title: "PAST",
     description: "PAST",
-    image: "",
+    image: "../public/past.webp",
   },
   {
     id: 2,
     title: "PRESENT",
     description: "PRESENT",
-    image: "",
+    image: "../public/present.jpg",
   },
   {
     id: 3,
     title: "FUTURE",
     description: "FUTURE",
-    image: "",
+    image: "../public/future.jpg",
   },
 ];
 
@@ -30,13 +30,13 @@ const App = () => {
       <Navbar />
 
       <div className="app">
-        <div className="movie-row">
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              image={movie.image}
-              title={movie.title}
-              description={movie.description}
+        <div className="homepage-row">
+          {homepageItems.map((item) => (
+            <HomePageCard
+              key={item.id}
+              image={item.image}
+              title={item.title}
+              description={item.description}
             />
           ))}
         </div>
