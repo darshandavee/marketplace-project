@@ -1,6 +1,6 @@
 // import "./App.css";
 import { useState, useEffect, useRef } from "react";
-import ProductCard from "./components/ProductCard";
+import ProductCard from "../components/ProductCard";
 // import MovieDetails from "./components/MovieDetails";
 import "./app-pp.css";
 const products = [
