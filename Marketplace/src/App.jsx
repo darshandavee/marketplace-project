@@ -1,47 +1,26 @@
 import React from "react";
 import "./App.css";
-import HomePageCard from "./components/homepagecard";
-import Navbar from "./components/Navbar";
+import AppPp from "./components/app-pp";
+import products from "./components/products"
+import ProductCard from './components/ProductCard'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductPage from "./components/Productpage";
+import Layout from "./Layout/Layout";
+import Homepage from "./components/Homepage";
+import Error from "./components/Error"
 
-const homepageItems = [
-  {
-    id: 1,
-    title: "SHOP",
-    description: "PAST",
-    image: "../public/past.webp",
-  },
-  {
-    id: 2,
-    title: "SHOP",
-    description: "PRESENT",
-    image: "../public/present.jpg",
-  },
-  {
-    id: 3,
-    title: "SHOP",
-    description: "FUTURE",
-    image: "../public/future.jpg",
-  },
-];
 
 const App = () => {
   return (
-    <>
-      <Navbar />
-
-      <div className="app">
-        <div className="homepage-row">
-          {homepageItems.map((item) => (
-            <HomePageCard
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-            />
-          ))}
-        </div>
-      </div>
-    </>
+    <Routes>
+    {/* Layout route */}
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Homepage />} />
+      <Route path="product" element={<AppPp products={products} />} />
+      <Route path="product/:id" element={<ProductPage products={products} />} />
+      <Route path="*" element={<Error />} />
+    </Route>
+  </Routes>
   );
 };
 

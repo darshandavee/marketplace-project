@@ -1,3 +1,5 @@
+
+
 export default function ProductCard({product, onClick}) {
     return (
       <div className="product-card">
