@@ -1,8 +1,7 @@
-
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
-import ProductCard from "./ProductCard";
-import ProductPage from "./Productpage";
+import ProductCard from "../components/ProductCard";
+import ProductPage from "../components/Productpage";
 
 import "./app-pp.css";
 import { Link } from "react-router-dom";
