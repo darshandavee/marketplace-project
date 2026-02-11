@@ -6,19 +6,19 @@ export default function Homepage(props) {
       id: 1,
       title: "PAST",
       description: "PAST",
-      image: "../public/past.webp",
+      image: "/past.webp",
     },
     {
       id: 2,
       title: "PRESENT",
       description: "PRESENT",
-      image: "../public/present.jpg",
+      image: "/present.jpg",
     },
     {
       id: 3,
       title: "FUTURE",
       description: "FUTURE",
-      image: "../public/future.jpg",
+      image: "/future.jpg",
     },
   ]
 

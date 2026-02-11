@@ -24,7 +24,7 @@ const Navbar = () => {
 
       {/* Cart Button */}
       <div className="cart">
-        <img src="/shopping-cart.png" alt="Cart" />
+        <img src="/shoppingCart.png" alt="Cart" />
         <span className="cart-count">0</span>
       </div>
     </div>

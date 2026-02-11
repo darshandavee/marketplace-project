@@ -6,7 +6,7 @@ const products = [
     title: "Alexander the Great's Sword",
     description:
       "Sword carried by Alexander the Great during his Thracian campaign around 330BCE",
-    image: "AtG_Sword.jpg",
+    image: "atgSword.jpg",
     // authenticity: True,
     price: 111000, 
   },
@@ -15,7 +15,7 @@ const products = [
     title: "Magna Carta, reproduction",
     description:
       "The original Magna Carta, established in the year 1215 much to King John's dismay. ",
-    image: "magna-carta.png",
+    image: "magnaCarta.png",
     // authenticity: False,
     price: 2200,
   },
@@ -23,7 +23,7 @@ const products = [
     id: 3,
     title: "Temporal Stabiliser version 7.0",
     description: "A unique device from 2540 which can allow the adjustment of persons to specific time eras, combatting the time-sickness associated with Temporal Shifting. Authenticated by the DTS and favoured by Zaphod Beetlebrox",
-    image: "Temporal Stabiliser.jpg",
+    image: "temporalStabiliser.jpg",
     // authenticity: True,
     price: 9800,
   },
