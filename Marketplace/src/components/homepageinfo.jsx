@@ -10,3 +10,4 @@ export default function HomePageInfo(props) {
   );
 }
 
+// For the team
