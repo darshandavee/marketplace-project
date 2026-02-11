@@ -1,16 +1,21 @@
 import React from "react";
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="navbar">
-      <img src="/timeazon.png" alt="Website Logo" className="logo" />
+      <NavLink to="/">
+        <img src="/timeazon.png" alt="Website Logo" className="logo" />
+      </NavLink>
 
       <ul>
-        <li>Homepage</li>
-        <li>Shop</li>
+        <li><NavLink to="/">Homepage</NavLink></li>
+        <li><NavLink to="/product">Shop</NavLink></li>
         <li>Lookbook</li>
         <li>Contact Us</li>
+        <li>Login</li>
       </ul>
 
       <div className="Search-bar">
