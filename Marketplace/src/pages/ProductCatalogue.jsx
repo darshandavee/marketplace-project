@@ -7,7 +7,7 @@ import "./ProductCatalogue.css";
 import { Link } from "react-router-dom";
 
 
-export default function AppPp({ products }) {
+export default function ProductCatalogue({ products }) {
 
   return (
     <div className="app">
