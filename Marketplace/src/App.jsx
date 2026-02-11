@@ -1,53 +1,23 @@
 import React from "react";
 import "./App.css";
 import AppPp from "./components/app-pp";
-import MovieCard from "./components/hmpagecard";
-import Navbar from "./components/Navbar";
+import products from "./components/products"
 import ProductCard from './components/ProductCard'
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductPage from "./components/Productpage";
 
-const movies = [
-  {
-    id: 1,
-    title: "PAST",
-    description: "PAST",
-    image: "",
-  },
-  {
-    id: 2,
-    title: "PRESENT",
-    description: "PRESENT",
-    image: "",
-  },
-  {
-    id: 3,
-    title: "FUTURE",
-    description: "FUTURE",
-    image: "",
-  },
-];
 
 const App = () => {
   return (
     <>
+   
     <Routes>
-      <Route path="/" element={<AppPp />} />
-      <Route path="/product/:id" element={<ProductCard />} />
+      <Route path="/" element={<AppPp products={products}/>} />
+      <Route path="/product/:id" element={<ProductPage products={products} />} />
     </Routes>
-      <Navbar />
+   
 
-      <div className="app">
-        <div className="movie-row">
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              image={movie.image}
-              title={movie.title}
-              description={movie.description}
-            />
-          ))}
-        </div>
-      </div>
+      
     </>
   );
 };
