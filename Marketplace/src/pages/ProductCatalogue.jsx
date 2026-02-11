@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import ProductPage from "../components/Productpage";
 
-import "./app-pp.css";
+import "./ProductCatalogue.css";
 import { Link } from "react-router-dom";
 
 

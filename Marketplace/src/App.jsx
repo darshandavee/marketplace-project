@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import AppPp from "./pages/app-pp";
-import products from "./components/products"
+import AppPp from "./pages/ProductCatalogue";
+import products from "./components/Products"
 import ProductCard from './components/ProductCard'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductPage from "./components/Productpage";
