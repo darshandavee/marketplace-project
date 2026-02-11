@@ -14,7 +14,7 @@ export default function ProductPage({ products }) {
 
   return (
     <div>
-      <img src={product.image} />
+      <img src={product.image}/>
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <h3>{product.price}</h3>
