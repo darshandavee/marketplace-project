@@ -4,20 +4,17 @@ export default function Homepage(props) {
   const homepageItems = [
     {
       id: 1,
-      title: "PAST",
-      description: "PAST",
-      image: "/past.webp",
+      title: "SHOP PAST",
+      image: "/past.jpg",
     },
     {
       id: 2,
-      title: "PRESENT",
-      description: "PRESENT",
+      title: "SHOP PRESENT",
       image: "/present.jpg",
     },
     {
       id: 3,
-      title: "FUTURE",
-      description: "FUTURE",
+      title: "SHOP FUTURE",
       image: "/future.jpg",
     },
   ]
@@ -30,7 +27,6 @@ export default function Homepage(props) {
               key={item.id}
               image={item.image}
               title={item.title}
-              description={item.description}
             />
           ))}
         </div>
