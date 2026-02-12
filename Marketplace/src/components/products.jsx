@@ -29,7 +29,7 @@ const products = [
   },
   {
      id: 4,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -38,7 +38,7 @@ const products = [
   },
   {
      id: 5,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -47,7 +47,7 @@ const products = [
   },
   {
      id: 6,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -56,7 +56,7 @@ const products = [
   },
   {
      id: 7,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -65,7 +65,7 @@ const products = [
   },
   {
      id: 8,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -74,7 +74,7 @@ const products = [
   },
   {
      id: 9,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -83,7 +83,7 @@ const products = [
   },
   {
      id: 10,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -92,7 +92,7 @@ const products = [
   },
   {
      id: 11,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -101,7 +101,7 @@ const products = [
   },
   {
      id: 12,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -110,7 +110,7 @@ const products = [
   },
   {
      id: 13,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -119,7 +119,7 @@ const products = [
   },
   {
      id: 14,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -128,7 +128,7 @@ const products = [
   },
   {
      id: 15,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -137,7 +137,7 @@ const products = [
   },
   {
      id: 16,
-    title: "Holographic timeflux3000 Watch",
+    title: "Holographic flux3000 watch",
     description:
       "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
     image: "watch.jpg",
@@ -149,4 +149,4 @@ export default products;
 
 
 
-// For the team
+// For the team and for ProdCat!
