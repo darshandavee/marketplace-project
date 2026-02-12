@@ -15,8 +15,6 @@ const Navbar = () => {
         <li><NavLink to="/product">Shop</NavLink></li>
         <li>Lookbook</li>
         <li><NavLink to ="/contact-us">Contact Us</NavLink></li>
-        <li>Login</li>
-        <li>Contact Us</li>
         <li><NavLink to="/login">Login</NavLink></li>
       </ul>
 
