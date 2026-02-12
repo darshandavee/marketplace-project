@@ -8,6 +8,7 @@ import ProductPage from "./components/Productpage";
 import Layout from "./Layout/Layout";
 import Homepage from "./components/Homepage";
 import Error from "./components/Error"
+import ContactUs from "./components/ContactUs";
 
 
 const App = () => {
@@ -18,7 +19,9 @@ const App = () => {
       <Route index element={<Homepage />} />
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
+      <Route path="contact-us" element={<ContactUs />} />
       <Route path="*" element={<Error />} />
+      
     </Route>
   </Routes>
   );
