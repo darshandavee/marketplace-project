@@ -8,7 +8,8 @@ function ContactForm() {
     ordernumber: '',
     message: ''
   });
- 
+ // setting inital state of the form data 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -16,10 +17,14 @@ function ContactForm() {
       [name]: value
     }));
   };
- 
+ // updating the state of the form data to be 
+ // shallow copy of what already exists 
+ // updating the name with a value 
+
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // preventing from reloading page
     console.log('Form submitted:', formData);
+    // logging the current form data 
  
      // Resetting the form
     setFormData({
@@ -41,7 +46,7 @@ function ContactForm() {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={handleChange} // updating the current state 
             required
             placeholder="Your full name"
           />

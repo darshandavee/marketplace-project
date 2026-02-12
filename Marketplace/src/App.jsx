@@ -19,6 +19,7 @@ const App = () => {
       <Route index element={<Homepage />} />
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
+      {/* /:id is for each of the product ids - for the individual pages*/}
       <Route path="contact-us" element={<ContactUs />} />
       <Route path="*" element={<Error />} />
       
