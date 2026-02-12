@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+.app {
+    margin-top: 10vh;
+}
+
 .product-row {
 max-width: auto;
 display: grid;
@@ -88,7 +92,7 @@ grid-template-columns: 1fr 1fr 1fr 1fr;
 
 .starrating {
     position: relative;
-    bottom: -11vh;
+    bottom: -4vh;
     left: 12.5vw;
     color: #25f0ff;
 }

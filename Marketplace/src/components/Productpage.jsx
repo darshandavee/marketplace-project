@@ -14,6 +14,7 @@ export default function ProductPage({ products }) {
 
   return (
     <div>
+      <button className="backButton" onclick="history.back()">🡸</button>
       <img src={product.image}/>
       <h2>{product.title}</h2>
       <p>{product.description}</p>
