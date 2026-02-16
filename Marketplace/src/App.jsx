@@ -8,6 +8,8 @@ import ProductPage from "./components/Productpage";
 import Layout from "./Layout/Layout";
 import Homepage from "./components/Homepage";
 import Error from "./components/Error"
+import ContactUs from "./components/ContactUs";
+import Login from "./components/Login";
 
 
 const App = () => {
@@ -15,10 +17,14 @@ const App = () => {
     <Routes>
     {/* Layout route */}
     <Route path="/" element={<Layout />}>
-      <Route index element={<Homepage />} />
+     <Route index element={<Homepage />} />
+     <Route path="login" element={<Login />} />    
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
+      {/* /:id is for each of the product ids - for the individual pages*/}
+      <Route path="contact-us" element={<ContactUs />} />
       <Route path="*" element={<Error />} />
+      
     </Route>
   </Routes>
   );
