@@ -9,6 +9,7 @@ import Layout from "./Layout/Layout";
 import Homepage from "./components/Homepage";
 import Error from "./components/Error"
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 
 const App = () => {
@@ -17,7 +18,8 @@ const App = () => {
     {/* Layout route */}
     <Route path="/" element={<Layout />}>
      <Route index element={<Homepage />} />
-     <Route path="login" element={<Login />} />    
+     <Route path="login" element={<Login />} />
+     <Route path="signup" element={<Signup />} />      
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
       <Route path="*" element={<Error />} />
