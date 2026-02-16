@@ -84,7 +84,7 @@ const products = [
      id: 9,
     title: "Rocket Dog Space Exploration Kit",
     description:
-      "Black Laborador Limited edition- fully functional for all your exploration needs. When you want to take your dog for a walk on Proxima Centauri b, or just for a jaunty space run this is teh kit for you!",
+      "Black Laborador Limited edition- fully functional for all your exploration needs. When you want to take your dog for a walk on Proxima Centauri b, or just for a jaunty space run this is the kit for you!",
     image: "/public/RocketDogSpaceExplorationSuit.png",
     // authenticity: True,
     price: 2893,
