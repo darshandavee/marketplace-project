@@ -88,6 +88,7 @@ const products = [
     image: "/public/RocketDogSpaceExplorationSuit.png",
     // authenticity: True,
     price: 2893,
+    era: "future"
   },
   {
      id: 10,
@@ -97,6 +98,7 @@ const products = [
     image: "/public/MedievalFireStartingKit.png",
     // authenticity: True,
     price: 782,
+    era: "past"
   },
   {
      id: 11,
@@ -106,6 +108,7 @@ const products = [
     image: "/public/RolexDayDate.png",
     // authenticity: True,
     price: 56000,
+    era: "present"
   },
   {
      id: 12,
@@ -114,7 +117,8 @@ const products = [
       "Used for general walking around Anciet Greece. Used condition. Box not included",
     image: "/public/HeroditusSandals.png",
     // authenticity: True,
-    price: 9800,
+    price: 670,
+    era: "past"
   },
   {
      id: 13,
@@ -124,6 +128,7 @@ const products = [
     image: "watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
   {
      id: 14,
@@ -133,6 +138,7 @@ const products = [
     image: "/public/watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
   {
      id: 15,
@@ -142,6 +148,7 @@ const products = [
     image: "/public/watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
   {
      id: 16,
@@ -151,6 +158,7 @@ const products = [
     image: "watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
 ];
 export default products;
