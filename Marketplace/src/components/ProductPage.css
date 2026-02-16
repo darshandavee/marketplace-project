@@ -12,3 +12,8 @@ button:hover {
     transform: scale(0.93);
     cursor: pointer;
 }
+
+.productPageImage {
+    max-width: 33vw;
+    max-height: 66vh;
+}

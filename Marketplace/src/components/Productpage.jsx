@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./BackButton.jsx";
 import "./ProductPage.css"
 
 export default function ProductPage({ products }) {
@@ -17,7 +17,7 @@ export default function ProductPage({ products }) {
   return (
     <div>
       <BackButton className="productPageBackButton"/>
-      <img src={product.image}/>
+      <img src={product.image} className="productPageImage"/>
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <h3>{product.price}</h3>
