@@ -103,16 +103,16 @@ const products = [
     title: "Rolex Day-Date watch",
     description:
       "Rolex Day-Date Classic watch with Box included",
-    image: "/public/RolexDayDate.jpg",
+    image: "/public/RolexDayDate.png",
     // authenticity: True,
     price: 56000,
   },
   {
      id: 12,
-    title: "Holographic flux3000 watch",
+    title: "Heroditus Sandals",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Used for general walking around Anciet Greece. Used condition. Box not included",
+    image: "wHeroditusSandals.png",
     // authenticity: True,
     price: 9800,
   },
