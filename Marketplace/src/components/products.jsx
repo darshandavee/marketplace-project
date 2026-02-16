@@ -112,7 +112,7 @@ const products = [
     title: "Heroditus Sandals",
     description:
       "Used for general walking around Anciet Greece. Used condition. Box not included",
-    image: "wHeroditusSandals.png",
+    image: "/public/HeroditusSandals.png",
     // authenticity: True,
     price: 9800,
   },
