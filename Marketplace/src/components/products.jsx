@@ -82,30 +82,30 @@ const products = [
   },
   {
      id: 9,
-    title: "Holographic flux3000 watch",
+    title: "Rocket Dog Space Exploration Kit",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Black Laborador Limited edition- fully functional for all your exploration needs. When you want to take your dog for a walk on Proxima Centauri b, or just for a jaunty space run this is teh kit for you!",
+    image: "/public/RocketDogSpaceExplorationSuit.png",
     // authenticity: True,
-    price: 9800,
+    price: 2893,
   },
   {
      id: 10,
-    title: "Holographic flux3000 watch",
+    title: "Medieval Fyrre Starting Kit",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Standard fyrre starting kit, for your ideal fyrre starting. No twisting required. OK condition. **Sack not included",
+    image: "/public/MedievalFireStartingKit.png",
     // authenticity: True,
-    price: 9800,
+    price: 782,
   },
   {
      id: 11,
-    title: "Holographic flux3000 watch",
+    title: "Rolex Day-Date watch",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Rolex Day-Date Classic watch with Box included",
+    image: "/public/RolexDayDate.jpg",
     // authenticity: True,
-    price: 9800,
+    price: 56000,
   },
   {
      id: 12,
