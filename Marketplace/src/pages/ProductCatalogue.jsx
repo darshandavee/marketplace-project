@@ -18,13 +18,14 @@ export default function ProductCatalogue({ products }) {
         {products.map((product) => (
           <Link key={product.id} to={`/product/${product.id}`}>
              <ProductCard className = "productCard"
-          key={product.id}
-          product={product}
-          image={product.image}
-          title={product.title}
-          price={product.price}
-          description={product.description}
-        />
+              key={product.id}
+              product={product}
+              image={product.image}
+              title={product.title}
+              price={product.price}
+              description={product.description}
+              era={product.era}
+            />
           </Link>
 ))}
 

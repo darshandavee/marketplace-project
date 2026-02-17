@@ -82,39 +82,43 @@ const products = [
   },
   {
      id: 9,
-    title: "Holographic flux3000 watch",
+    title: "Rocket Dog Space Exploration Kit",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Black Laborador Limited edition- fully functional for all your exploration needs. When you want to take your dog for a walk on Proxima Centauri b, or just for a jaunty space run this is the kit for you!",
+    image: "/public/RocketDogSpaceExplorationSuit.png",
     // authenticity: True,
-    price: 9800,
+    price: 2893,
+    era: "future"
   },
   {
      id: 10,
-    title: "Holographic flux3000 watch",
+    title: "Medieval Fyrre Starting Kit",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Standard fyrre starting kit, for your ideal fyrre starting. No twisting required. OK condition. **Sack not included",
+    image: "/public/MedievalFireStartingKit.png",
     // authenticity: True,
-    price: 9800,
+    price: 782,
+    era: "past"
   },
   {
      id: 11,
-    title: "Holographic flux3000 watch",
+    title: "Rolex Day-Date watch",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Rolex Day-Date Classic watch with Box included",
+    image: "/public/RolexDayDate.png",
     // authenticity: True,
-    price: 9800,
+    price: 56000,
+    era: "present"
   },
   {
      id: 12,
-    title: "Holographic flux3000 watch",
+    title: "Heroditus Sandals",
     description:
-      "Model flux3000. Includes display of time from any era and location. OK condition. Box not included",
-    image: "watch.jpg",
+      "Used for general walking around Anciet Greece. Used condition. Box not included",
+    image: "/public/HeroditusSandals.png",
     // authenticity: True,
-    price: 9800,
+    price: 670,
+    era: "past"
   },
   {
      id: 13,
@@ -124,6 +128,7 @@ const products = [
     image: "watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
   {
      id: 14,
@@ -133,6 +138,7 @@ const products = [
     image: "/public/watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
   {
      id: 15,
@@ -142,6 +148,7 @@ const products = [
     image: "/public/watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
   {
      id: 16,
@@ -151,6 +158,7 @@ const products = [
     image: "watch.jpg",
     // authenticity: True,
     price: 9800,
+    era: "future"
   },
 ];
 export default products;
