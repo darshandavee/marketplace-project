@@ -22,7 +22,7 @@ const Signup = () => {
           </div>
 
           <div className="login-link">
-          <p>Already have an account? <a className='login' href="#">Login</a></p>
+          <p>Already have an account? <a className='login' as={Link} href="/login">Login</a></p>
           </div>
           
         </form>
