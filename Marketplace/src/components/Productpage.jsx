@@ -15,12 +15,16 @@ export default function ProductPage({ products }) {
   }
 
   return (
-    <div>
+    <div className="productPageElements">
       <BackButton className="productPageBackButton"/>
+      <div className="pageImage">
       <img src={product.image} className="productPageImage"/>
+      </div>
+      <div className="productDetails">
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <h3>{product.price}</h3>
+      </div>
     </div>
   );
 }
