@@ -12,7 +12,7 @@ export default function ProductCatalogue({ products }) {
   return (
     <div className="app">
     
-      <h1>Product Cards</h1>
+      <h1>Featured Products</h1>
 
       <div className="product-row" >
         {products.map((product) => (
