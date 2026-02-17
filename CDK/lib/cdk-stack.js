@@ -222,7 +222,53 @@ export class CdkStack extends Stack {
     })
     // Write your other lambdas into here
 
-    // Grant Lambdas that need it access to the Aurora Data API
+    // Colin has added some basic lambda's in here. Need to change the params to make them fit the 
+    // requirements... (these are taken from the Bakehouse) 
+
+    // const productsListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
+    //       functionName: `${props.subDomain}-products-list-lambda`,
+    //       runtime: lambda.Runtime.NODEJS_22_X,
+    //       entry: 'functions/utility-functions.js',
+    //       handler: 'productsListHandler',
+    //       bundling,
+    //       environment: {
+    //         ...lambdaEnvVars,
+    //         FEATURED_PRODUCT: 
+
+
+    // const productsListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
+    //       functionName: `${props.subDomain}-products-list-lambda`,
+    //       runtime: lambda.Runtime.NODEJS_22_X,
+    //       entry: 'functions/utility-functions.js',
+    //       handler: 'productsListHandler',
+    //       bundling,
+    //       environment: {
+    //         ...lambdaEnvVars,
+    //         FEATURED_PRODUCT: 
+
+    
+    // const customerListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
+    //       functionName: `${props.subDomain}-products-list-lambda`,
+    //       runtime: lambda.Runtime.NODEJS_22_X,
+    //       entry: 'functions/utility-functions.js',
+    //       handler: 'productsListHandler',
+    //       bundling,
+    //       environment: {
+    //         ...lambdaEnvVars,
+    //         FEATURED_PRODUCT: 
+
+    
+    // const productsListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
+    //       functionName: `${props.subDomain}-products-list-lambda`,
+    //       runtime: lambda.Runtime.NODEJS_22_X,
+    //       entry: 'functions/utility-functions.js',
+    //       handler: 'productsListHandler',
+    //       bundling,
+    //       environment: {
+    //         ...lambdaEnvVars,
+    //         FEATURED_PRODUCT: 
+
+        // Grant Lambdas that need it access to the Aurora Data API
 
 
     // ----------------------------------
