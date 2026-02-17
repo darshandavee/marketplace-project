@@ -11,6 +11,7 @@ import Error from "./components/Error"
 import ContactUs from "./components/ContactUs";
 import Login from "./components/Login";
 import TimePortal from "./components/TimePortal";
+import Signup from "./components/Signup";
 
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
     <Routes>
     {/* Layout route */}
     <Route path="/" element={<Layout />}>
-     <Route index element={<Homepage />} />
+     <Route index element={<Carousel/>} />
      <Route path="login" element={<Login />} />
      <Route path="signup" element={<Signup />} />      
       <Route path="product" element={<ProductCatalogue products={products} />} />
