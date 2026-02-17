@@ -85,7 +85,7 @@ const products = [
     title: "Rocket Dog Space Exploration Kit",
     description:
       "Black Laborador Limited edition- fully functional for all your exploration needs. When you want to take your dog for a walk on Proxima Centauri b, or just for a jaunty space run this is the kit for you!",
-    image: "/public/RocketDogSpaceExplorationSuit.png",
+    image: "/public/rocketDogSpaceExplorationSuit.png",
     // authenticity: True,
     price: 2893,
     era: "future"
@@ -95,7 +95,7 @@ const products = [
     title: "Medieval Fyrre Starting Kit",
     description:
       "Standard fyrre starting kit, for your ideal fyrre starting. No twisting required. OK condition. **Sack not included",
-    image: "/public/MedievalFireStartingKit.png",
+    image: "/public/medievalFireStartingKit.png",
     // authenticity: True,
     price: 782,
     era: "past"
@@ -105,7 +105,7 @@ const products = [
     title: "Rolex Day-Date watch",
     description:
       "Rolex Day-Date Classic watch with Box included",
-    image: "/public/RolexDayDate.png",
+    image: "/public/rolexDayDate.png",
     // authenticity: True,
     price: 56000,
     era: "present"
@@ -115,7 +115,7 @@ const products = [
     title: "Heroditus Sandals",
     description:
       "Used for general walking around Anciet Greece. Used condition. Box not included",
-    image: "/public/HeroditusSandals.png",
+    image: "/public/heroditusSandals.png",
     // authenticity: True,
     price: 670,
     era: "past"
