@@ -18,8 +18,9 @@ const App = () => {
     <Routes>
     {/* Layout route */}
     <Route path="/" element={<Layout />}>
-     <Route index element={<Carousel/>} />
-     <Route path="login" element={<Login />} />    
+     <Route index element={<Homepage />} />
+     <Route path="login" element={<Login />} />
+     <Route path="signup" element={<Signup />} />      
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
       {/* /:id is for each of the product ids - for the individual pages*/}

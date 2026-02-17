@@ -1,12 +1,15 @@
 import React from 'react';
-import "./Login.css";
+import "./Signup.css";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   return (
-      <div className="login-page">
+      <div className="signup-page">
         <form action="">
-          <h1>Initialize Access</h1>
+          <h1>Create An Account</h1>
+            <div className="input-container">
+            <input type="text" placeholder="Email" required/>
+          </div>
           <div className="input-container">
             <input type="text" placeholder="Username" required/>
           </div>
@@ -18,8 +21,8 @@ const Login = () => {
             <a className='password' href="#">Forgot Password?</a>
           </div>
 
-          <div className="signup-link">
-          <p>Don't have an account? <a className='signup' href="#">Sign Up</a></p>
+          <div className="login-link">
+          <p>Already have an account? <a className='login' href="#">Login</a></p>
           </div>
           
         </form>
@@ -27,4 +30,4 @@ const Login = () => {
 );
 };
 
-export default Login;
+export default Signup;
