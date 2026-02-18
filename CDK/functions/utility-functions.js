@@ -8,6 +8,30 @@ function jsonResponse(statusCode, payload) {
   };
 }
 
+// Normalise the result from data-api-client / RDS Data API
+const normaliseRows = (result) => {
+  if (!result) return []
+  if (Array.isArray(result)) return result
+  if (Array.isArray(result.rows)) return result.rows
+  if (Array.isArray(result.records)) return result.records
+  return []
+}
+
+const logInvocationDetails = (event, context) => {
+  console.log("Event received:");
+  console.log(JSON.stringify(event, null, 2));
+
+  if (context) {
+    console.log("Context received:");
+    console.log({
+      functionName: context.functionName,
+      functionVersion: context.functionVersion,
+      awsRequestId: context.awsRequestId,
+      remainingTimeMs: context.getRemainingTimeInMillis()
+    });
+  }
+};
+
 // -------------------------
 // BOOTSTRAP HANDLER
 // -------------------------
