@@ -28,24 +28,20 @@ export default function BackendStatus() {
  
   return (
     <div className="container">
-      <div className="title">Backend Health Check</div>
+      <div className="title">Health Check</div>
  
       {status === "checking" && (
         <div className="checking">Checking backend…</div>
       )}
  
       {status === "online" && (
-        <div className="online">API is online ✔️</div>
+  <div className="status-indicator online"></div>
       )}
- 
-      {status === "offline" && (
-        <div className="offline">
-          API is offline!!!
-          <div className="subtext">
-            This is expected — we have not built the backend layer yet...
-          </div>
-        </div>
+
+{status === "offline" && (
+  <div className="status-indicator offline"></div>
       )}
+
     </div>
   );
 }
