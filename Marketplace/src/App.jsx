@@ -12,6 +12,7 @@ import ContactUs from "./components/ContactUs";
 import Login from "./components/Login";
 import TimePortal from "./components/TimePortal";
 import Signup from "./components/Signup";
+import PasswordReset from "./components/passwordreset";
 
 
 const App = () => {
@@ -21,7 +22,8 @@ const App = () => {
     <Route path="/" element={<Layout />}>
      <Route index element={<Carousel/>} />
      <Route path="login" element={<Login />} />
-     <Route path="signup" element={<Signup />} />      
+     <Route path="signup" element={<Signup />} />
+     <Route path="PasswordReset" element={<PasswordReset />} />   
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
       {/* /:id is for each of the product ids - for the individual pages*/}

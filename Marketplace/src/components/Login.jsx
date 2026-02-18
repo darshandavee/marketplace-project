@@ -15,11 +15,11 @@ const Login = () => {
           </div>
           <button className='submit-btn' type="submit">Confirm</button>
           <div className="forgot-password">
-            <a className='password' href="#">Forgot Password?</a>
+            <a className='password' as={Link} href="/PasswordReset">Forgot Password?</a>
           </div>
 
           <div className="signup-link">
-          <p>Don't have an account? <a className='signup' href="#">Sign Up</a></p>
+          <p>Don't have an account? <a className='signup' as={Link} href="/signup">Sign Up</a></p>
           </div>
           
         </form>

@@ -18,11 +18,11 @@ const Signup = () => {
           </div>
           <button className='submit-btn' type="submit">Confirm</button>
           <div className="forgot-password">
-            <a className='password' href="#">Forgot Password?</a>
+            <a className='password' as={Link} href="/PasswordReset">Forgot Password?</a>
           </div>
 
           <div className="login-link">
-          <p>Already have an account? <a className='login' href="#">Login</a></p>
+          <p>Already have an account? <a className='login' as={Link} href="/login">Login</a></p>
           </div>
           
         </form>
