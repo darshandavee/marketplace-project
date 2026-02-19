@@ -28,10 +28,10 @@ export default function BackendStatus() {
  
   return (
     <div className="container">
-      <div className="title">Health Check</div>
+      <div className="title"></div>
  
       {status === "checking" && (
-        <div className="checking">Checking backend…</div>
+        <div className="checking">Checking backend</div>
       )}
  
       {status === "online" && (

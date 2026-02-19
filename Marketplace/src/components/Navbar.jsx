@@ -1,11 +1,15 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import "./Navbar.css";
+import BackendStatus from "./healthCheckButton.jsx"
 
 const Navbar = () => {
   return (
     <div className="navbar">
+      <div className="backend-status-wrapper">
+    <BackendStatus />
+    </div>
       <NavLink to="/">
         <img src="/timeazon.png" alt="Website Logo" className="logo" />
       </NavLink>
@@ -30,5 +34,6 @@ const Navbar = () => {
     </div>
   );
 };
+
 
 export default Navbar;

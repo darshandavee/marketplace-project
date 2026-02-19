@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import "./Carousel.css";
-import BackendStatus from "./healthCheckButton.jsx"
 
 export default function Carousel() {
   const scrollRef = useRef(null);
@@ -35,7 +34,6 @@ export default function Carousel() {
       <button className="scroll-btn right" onClick={() => scroll("right")}>
         ▶
       </button>
-      <BackendStatus />
     </div>
   );
 }
