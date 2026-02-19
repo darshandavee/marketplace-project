@@ -13,10 +13,11 @@ export const sql00_dropAllTables = `
 
 // 1. Create tables
 
-export const sql01_createCustomersTable = `
-  CREATE TABLE IF NOT EXISTS customers (
+export const sql01_createUsersTable = `
+  CREATE TABLE IF NOT EXISTS users (
     id     SERIAL PRIMARY KEY,
-    name   TEXT NOT NULL,
+    username   TEXT NOT NULL,
+    password   TEXT NOT NULL,
     email  TEXT NOT NULL UNIQUE
   );
 `;
@@ -27,7 +28,7 @@ export const sql02_createProductsTable = `
     name        TEXT NOT NULL,
     description TEXT,
     price_pence INTEGER NOT NULL,
-    pdf_url     TEXT,
+    image       TEXT,
     created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
   );
 `;
@@ -47,63 +48,34 @@ export const sql03_createOrdersTable = `
 
 export const sql04_seedCustomers = `
   INSERT INTO customers (name, email) VALUES
-    ('Alice Baker',   'alice@example.com'),
-    ('Bob Dough',     'bob@example.com'),
-    ('Cara Crumble',  'cara@example.com')
-  ON CONFLICT (email) DO NOTHING;
+    ('Darshan Gateau',   'darshan@example.com'),
+    ('Adam Dough',     'adam@example.com'),
+    ('Jaz Crumble',  'jaz@example.com'),
+    ('Colin Cookie',  'colin@example.com'),
+    ('Alisha Cake',  'alisha@example.com')
+    ON CONFLICT (email) DO NOTHING;
 `;
 
 export const sql05_seedProducts = `
-  INSERT INTO products (name, description, price_pence, pdf_url) VALUES
-    ('Blueberry Muffin',
-     'Soft muffin packed with blueberries',
-     275,
-     'blueberry_muffin.pdf'),
+  INSERT INTO products (name, description, price_credit, era, image) VALUES
+    ('Alexander's the Great's Sword',
+     'Old sword',
+     111000,
+     'PAST',
+     'atgSword.jpg'),
 
-    ('Butter Croissant',
-     'Flaky, buttery croissant',
-     275,
-     'butter_croissant.pdf'),
+    ('Magna Carta reproduction',
+     'Old book',
+     246278,
+     'PAST',
+     'magnaCarta.png'),
 
-    ('Chocolate Brownie',
-     'Rich chocolate brownie slice',
-     295,
-     'chocolate_brownie.pdf'),
+    ('Temporal Stabiliser version 7.0',
+     'new something something',
+     29567,
+     'FUTURE',
+     'temporalStabiliser.jpg'),
 
-    ('Cinnamon Bun',
-     'Soft bun with cinnamon sugar swirl',
-     350,
-     'cinnamon_bun.pdf'),
-
-    ('French Baguette',
-     'Classic crusty French baguette',
-     250,
-     'french_baguette.pdf'),
-
-    ('Pain Au Chocolat',
-     'Laminated pastry with dark chocolate',
-     295,
-     'pain_au_chocolat.pdf'),
-
-    ('Sausage Roll',
-     'Puff pastry roll with seasoned sausage filling',
-     250,
-     'sausage_roll.pdf'),
-
-    ('Sourdough Loaf',
-     'Slow-fermented sourdough loaf, baked daily',
-     495,
-     'sourdough_loaf.pdf'),
-
-    ('Vegan Banana Bread',
-     'Moist banana loaf made with plant-based ingredients',
-     325,
-     'vegan_banana_bread.pdf'),
-
-    ('Victoria Sponge Slice',
-     'Classic vanilla sponge with jam and cream',
-     325,
-     'victoria_sponge_slice.pdf')
   ON CONFLICT DO NOTHING;
 `;
 

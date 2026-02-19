@@ -3,7 +3,7 @@ import client from "data-api-client";
 
 import {
   sql00_dropAllTables,
-  sql01_createCustomersTable,
+  sql01_createUsersTable,
   sql02_createProductsTable,
   sql03_createOrdersTable,
   sql04_seedCustomers,
@@ -26,7 +26,7 @@ export async function runQuery(sql, params = {}) {
 export async function bootstrapDatabase() {
   const statements = [
     sql00_dropAllTables,
-    sql01_createCustomersTable,
+    sql01_createUsersTable,
     sql02_createProductsTable,
     sql03_createOrdersTable,
     sql04_seedCustomers,
