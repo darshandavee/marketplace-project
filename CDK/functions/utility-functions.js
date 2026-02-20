@@ -110,4 +110,35 @@ export const productCatalogHandler = async (event, context) => {
       })
     }
   }
-}
+};
+
+// utilityfunctions.js
+
+export const postUsersHandler = async (event, context) => {
+  logInvocationDetails(event, context)
+
+  try{
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        status: 'User created successfully',
+        user:{
+          user_id: "userId",
+          name:"Darshan Dave",
+          username:"darshan_dave",
+          email:"darshan@example.com",
+        }
+      })
+    }
+  } catch (error) {
+    console.error('postUsersHandler error:', error)
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        status: 'error',
+        message: 'Failed to create user'
+      })
+    }
+  }
+};

@@ -327,6 +327,11 @@ export class CdkStack extends Stack {
     const productCatalogApi = api.root.addResource('product')
     productCatalogApi.addMethod('GET', new apigw.LambdaIntegration(productCatalogLambda))
 
+    const postUsersApi = api.root.addResource('users')
+    postUsersApi.addMethod('POST', new apigw.LambdaIntegration(postUsersLambda))
+
+    
+
     // ----------------------------------
     // CloudFront distributions
     // ----------------------------------
