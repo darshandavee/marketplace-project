@@ -197,7 +197,8 @@ export class CdkStack extends Stack {
     // ----------------------------------
     const bundling = {
       externalModules: ['aws-sdk'],
-      nodeModules: ['data-api-client']
+      nodeModules: ['data-api-client'],
+      forceDockerBundling: true
     }
 
     const lambdaEnvVars = {
@@ -218,7 +219,9 @@ export class CdkStack extends Stack {
       functionName: `${props.subDomain}-health-check-lambda`,
       runtime: lambda.Runtime.NODEJS_22_X,
       entry: 'functions/health-check.js',
-      handler: 'healthcheckHandler'
+      handler: 'healthcheckHandler',
+      bundling
+
     })
     // Write your other lambdas into here
 
@@ -308,7 +311,9 @@ export class CdkStack extends Stack {
     // Allow `/api/healthcheck` to receive GET requests, and tell it which lambder to trigger whn it does
     healthchckApi.addMethod('GET', new apigw.LambdaIntegration(healthcheckLambda))
     
-
+    //ADD ENDPOINT HERE
+    const productCatalogApi = api.root.addResource('product')
+    productCatalogApi.addMethod('GET', new apigw.LambdaIntegration(productCatalogLambda))
 
     // ----------------------------------
     // CloudFront distributions
@@ -453,6 +458,9 @@ export class CdkStack extends Stack {
       value: `https://${api.restApiId}.execute-api.${props.env.region}.amazonaws.com/api/healthcheck`
     })
 
+    // new cdk.CfnOutput(this, "Product_Catalog_Endpoint", {
+    //   value: `https://${api.restApiId}.execute-api.${props.env.region}.amazonaws.com/api/product-catalog`
+    // })
 
     // --------------------------------------------------
     // 03 – CloudFront (Debugging + invalidations)

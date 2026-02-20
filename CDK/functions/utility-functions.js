@@ -62,34 +62,41 @@ export const productCatalogHandler = async (event, context) => {
   logInvocationDetails(event, context)
 
   try {
-    const result = await runQuery(`
-      SELECT id, name, description, price_credit, image, era
-      FROM products
-      WHERE image IS NOT NULL
-      ORDER BY id;
-    `)
+    // const result = await runQuery(`
+    //   SELECT id, name, description, price_credit, image, era
+    //   FROM products
+    //   WHERE image IS NOT NULL
+    //   ORDER BY id;
+    // `)
 
-    const rows = normaliseRows(result)
+    // const rows = normaliseRows(result)
 
-    // Use the pdf_url to derive the slug the front end expects
-    const productObjects = rows.map((r) => ({
-      id: r.id,
-      name: r.name,
-      description: r.description,
-      priceCredit: r.price_credit,
-      imageUrl: r.image_url,
-      slug: r.image_url.replace(/\.image$/i, '')
-    }))
+    // // Use the pdf_url to derive the slug the front end expects
+    // const productObjects = rows.map((r) => ({
+    //   id: r.id,
+    //   name: r.name,
+    //   description: r.description,
+    //   priceCredit: r.price_credit,
+    //   imageUrl: r.image_url,
+    //   slug: r.image_url.replace(/\.image$/i, '')
+    // }))
 
-    const productSlugs = productObjects.map((p) => p.slug)
+    // const productSlugs = productObjects.map((p) => p.slug)
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         status: 'ok',
-        featuredProduct: process.env.FEATURED_PRODUCT || null,
-        products: productSlugs,        // what the UI already uses
-        productDetails: productObjects // extra data if you need it later
+        product:{
+          product_id: "productId",
+          name:"Magna Carta",
+          description:" The Magna Carta, also known as the Great Charter, is a historic document that was signed in 1215. It is considered one of the most important legal documents in history, as it established the principle that everyone, including the king, is subject to the law. The Magna Carta was originally created to limit the powers of King John of England and to protect the rights of his barons. Over time, it has become a symbol of liberty and justice, influencing legal systems around the world.",
+          priceCredit:"500",
+          image:"magna-carta.png",
+        }
+        // featuredProduct: process.env.FEATURED_PRODUCT || null,
+        // products: productSlugs,        // what the UI already uses
+        // productDetails: productObjects // extra data if you need it later
       })
     }
   } catch (error) {
