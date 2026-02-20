@@ -240,6 +240,18 @@ export class CdkStack extends Stack {
         }
       })
 
+    //SIGNUP LAMBDA
+
+    const postUsersLambda = new nodejs.NodejsFunction(this, 'post-users-lambda', {
+      functionName: `${props.subDomain}-post-users-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      entry: 'functions/users.js',
+      handler: 'postUsersHandler',
+      bundling,
+      environment: lambdaEnvVars
+
+    })
+
     // const productsListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
     //       functionName: `${props.subDomain}-products-list-lambda`,
     //       runtime: lambda.Runtime.NODEJS_22_X,
