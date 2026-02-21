@@ -197,8 +197,7 @@ export class CdkStack extends Stack {
     // ----------------------------------
     const bundling = {
       externalModules: ['aws-sdk'],
-      nodeModules: ['data-api-client'],
-      forceDockerBundling: true
+      nodeModules: ['data-api-client']
     }
 
     const lambdaEnvVars = {
@@ -219,73 +218,24 @@ export class CdkStack extends Stack {
       functionName: `${props.subDomain}-health-check-lambda`,
       runtime: lambda.Runtime.NODEJS_22_X,
       entry: 'functions/health-check.js',
-      handler: 'healthcheckHandler',
-      bundling
-
+      handler: 'healthcheckHandler'
     })
     // Write your other lambdas into here
 
-    // Colin has added some basic lambda's in here. Need to change the params to make them fit the 
-    // requirements... (these are taken from the Bakehouse) 
-
-    const productCatalogLambda = new nodejs.NodejsFunction(this, 'product-catalog-lambda', {
-          functionName: `${props.subDomain}-product-catalog-lambda`,
-          runtime: lambda.Runtime.NODEJS_22_X,
-          entry: 'functions/utility-functions.js',
-          handler: 'productCatalogHandler',
-          bundling,
-          environment: {
-            ...lambdaEnvVars,
-            FEATURED_PRODUCT: ""
-        }
-      })
-
-    //SIGNUP LAMBDA
-
-    const postUsersLambda = new nodejs.NodejsFunction(this, 'post-users-lambda', {
-      functionName: `${props.subDomain}-post-users-lambda`,
+     const postProductLambda = new nodejs.NodejsFunction(this, 'post-product-lambda', {
+      functionName: `${props.subDomain}-post-product-lambda`,
       runtime: lambda.Runtime.NODEJS_22_X,
-      entry: 'functions/users.js',
-      handler: 'postUsersHandler',
+      entry: 'functions/utility-functions.js',
+      handler: 'postProductHandler',
       bundling,
       environment: lambdaEnvVars
-
     })
 
-    // const productsListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
-    //       functionName: `${props.subDomain}-products-list-lambda`,
-    //       runtime: lambda.Runtime.NODEJS_22_X,
-    //       entry: 'functions/utility-functions.js',
-    //       handler: 'productsListHandler',
-    //       bundling,
-    //       environment: {
-    //         ...lambdaEnvVars,
-    //         FEATURED_PRODUCT: 
+    // Grant Lambdas that need it access to the Aurora Data API
 
-    
-    // const customerListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
-    //       functionName: `${props.subDomain}-products-list-lambda`,
-    //       runtime: lambda.Runtime.NODEJS_22_X,
-    //       entry: 'functions/utility-functions.js',
-    //       handler: 'productsListHandler',
-    //       bundling,
-    //       environment: {
-    //         ...lambdaEnvVars,
-    //         FEATURED_PRODUCT: 
-
-    
-    // const productsListLambda = new nodejs.NodejsFunction(this, 'products-list-lambda', {
-    //       functionName: `${props.subDomain}-products-list-lambda`,
-    //       runtime: lambda.Runtime.NODEJS_22_X,
-    //       entry: 'functions/utility-functions.js',
-    //       handler: 'productsListHandler',
-    //       bundling,
-    //       environment: {
-    //         ...lambdaEnvVars,
-    //         FEATURED_PRODUCT: 
-
-        // Grant Lambdas that need it access to the Aurora Data API
-
+    // cluster.grantDataApiAccess(productCatalogLambda)
+    // cluster.grantDataApiAccess(postProductLambda)
+    // productCardsBucket.grantReadWrite(postProductLambda)
 
     // ----------------------------------
     // API Gateway
@@ -323,9 +273,9 @@ export class CdkStack extends Stack {
     // Allow `/api/healthcheck` to receive GET requests, and tell it which lambder to trigger whn it does
     healthchckApi.addMethod('GET', new apigw.LambdaIntegration(healthcheckLambda))
     
-    //ADD ENDPOINT HERE
-    const productCatalogApi = api.root.addResource('product')
-    productCatalogApi.addMethod('GET', new apigw.LambdaIntegration(productCatalogLambda))
+    const productsApi = api.root.addResource('products')
+    // productsApi.addMethod('GET', new apigw.LambdaIntegration(productCatalogLambda))
+    productsApi.addMethod('POST', new apigw.LambdaIntegration(postProductLambda))
 
     // ----------------------------------
     // CloudFront distributions
@@ -470,9 +420,6 @@ export class CdkStack extends Stack {
       value: `https://${api.restApiId}.execute-api.${props.env.region}.amazonaws.com/api/healthcheck`
     })
 
-    // new cdk.CfnOutput(this, "Product_Catalog_Endpoint", {
-    //   value: `https://${api.restApiId}.execute-api.${props.env.region}.amazonaws.com/api/product-catalog`
-    // })
 
     // --------------------------------------------------
     // 03 – CloudFront (Debugging + invalidations)

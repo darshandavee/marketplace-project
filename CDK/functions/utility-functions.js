@@ -8,30 +8,6 @@ function jsonResponse(statusCode, payload) {
   };
 }
 
-// Normalise the result from data-api-client / RDS Data API
-const normaliseRows = (result) => {
-  if (!result) return []
-  if (Array.isArray(result)) return result
-  if (Array.isArray(result.rows)) return result.rows
-  if (Array.isArray(result.records)) return result.records
-  return []
-}
-
-const logInvocationDetails = (event, context) => {
-  console.log("Event received:");
-  console.log(JSON.stringify(event, null, 2));
-
-  if (context) {
-    console.log("Context received:");
-    console.log({
-      functionName: context.functionName,
-      functionVersion: context.functionVersion,
-      awsRequestId: context.awsRequestId,
-      remainingTimeMs: context.getRemainingTimeInMillis()
-    });
-  }
-};
-
 // -------------------------
 // BOOTSTRAP HANDLER
 // -------------------------
@@ -62,41 +38,34 @@ export const productCatalogHandler = async (event, context) => {
   logInvocationDetails(event, context)
 
   try {
-    // const result = await runQuery(`
-    //   SELECT id, name, description, price_credit, image, era
-    //   FROM products
-    //   WHERE image IS NOT NULL
-    //   ORDER BY id;
-    // `)
+    const result = await runQuery(`
+      SELECT id, name, description, price_credit, image, era
+      FROM products
+      WHERE image IS NOT NULL
+      ORDER BY id;
+    `)
 
-    // const rows = normaliseRows(result)
+    const rows = normaliseRows(result)
 
-    // // Use the pdf_url to derive the slug the front end expects
-    // const productObjects = rows.map((r) => ({
-    //   id: r.id,
-    //   name: r.name,
-    //   description: r.description,
-    //   priceCredit: r.price_credit,
-    //   imageUrl: r.image_url,
-    //   slug: r.image_url.replace(/\.image$/i, '')
-    // }))
+    // Use the pdf_url to derive the slug the front end expects
+    const productObjects = rows.map((r) => ({
+      id: r.id,
+      name: r.name,
+      description: r.description,
+      priceCredit: r.price_credit,
+      imageUrl: r.image_url,
+      slug: r.image_url.replace(/\.image$/i, '')
+    }))
 
-    // const productSlugs = productObjects.map((p) => p.slug)
+    const productSlugs = productObjects.map((p) => p.slug)
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         status: 'ok',
-        product:{
-          product_id: "productId",
-          name:"Magna Carta",
-          description:" The Magna Carta, also known as the Great Charter, is a historic document that was signed in 1215. It is considered one of the most important legal documents in history, as it established the principle that everyone, including the king, is subject to the law. The Magna Carta was originally created to limit the powers of King John of England and to protect the rights of his barons. Over time, it has become a symbol of liberty and justice, influencing legal systems around the world.",
-          priceCredit:"500",
-          image:"magna-carta.png",
-        }
-        // featuredProduct: process.env.FEATURED_PRODUCT || null,
-        // products: productSlugs,        // what the UI already uses
-        // productDetails: productObjects // extra data if you need it later
+        featuredProduct: process.env.FEATURED_PRODUCT || null,
+        products: productSlugs,        // what the UI already uses
+        productDetails: productObjects // extra data if you need it later
       })
     }
   } catch (error) {
@@ -108,6 +77,84 @@ export const productCatalogHandler = async (event, context) => {
         status: 'error',
         message: 'Failed to load products'
       })
+    }
+  }
+}
+
+export const postProductHandler = async (event) => {
+  console.log('postProductHandler invoked')
+
+  const body = event.body ? JSON.parse(event.body) : {}
+
+  // support either pricePounds (our preferred shape) or price
+  // const rawPrice =
+  //   typeof body.pricePounds === 'number'
+  //     ? body.pricePounds
+  //     : Number(body.price)
+
+  if (!body.name || !Number.isFinite(price_credit)) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        status: 'error',
+        message: 'name and pricePounds (number) are required',
+      }),
+    }
+  }
+
+  const name = body.name
+  const description = body.description || ''
+  const category = body.category || 'Uncategorised'
+  const price_credit = Math.round(price_credit * 1)
+
+  try {
+   
+
+    // 2. Insert product row, storing ONLY the key in pdf_url
+    const insertSql = `
+      INSERT INTO products (name, description, price_credit, image_url, era)
+      VALUES (:name, :description, :price_credit, :image_url, :era)
+      RETURNING id, name, description, price_credit, image_url, era
+    `
+
+    const insertResult = await runQuery(insertSql, {
+      name,
+      description,
+      price_credit,
+      image_url,
+      era
+    })
+
+    const row =
+      insertResult?.records?.[0] ||
+      insertResult?.rows?.[0] ||
+      insertResult?.[0]
+
+    const product = {
+      id: row.id,
+      name: row.name,
+      description: row.description,
+      price_credit: row.price_credit,
+      image_url: row.image_url,
+      era: row.era,
+    }
+
+    return {
+      statusCode: 201,
+      body: JSON.stringify({
+        status: 'created',
+        product,
+      }),
+    }
+  } catch (error) {
+    console.error('Error creating product', error)
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        status: 'error',
+        message: 'Could not create product',
+      }),
     }
   }
 }
