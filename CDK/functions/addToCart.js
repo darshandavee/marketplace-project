@@ -1,5 +1,4 @@
 // functions/addToCart.js
-// functions/addToCart.js
 export const postToCartHandler = async () => {
   return {
     statusCode: 200,
