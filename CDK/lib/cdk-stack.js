@@ -353,6 +353,9 @@ export class CdkStack extends Stack {
     const productCatalogApi = api.root.addResource('product')
     productCatalogApi.addMethod('GET', new apigw.LambdaIntegration(productCatalogLambda))
 
+    const usersApi = api.root.addResource('users')
+    usersApi.addMethod('POST', new apigw.LambdaIntegration(postUsersLambda))
+
     // const addToCartApi = api.root.addResource("addtocart");
     // addToCartApi.addMethod("GET", new apigw.LambdaIntegration(getToCartLambda));
     // addToCartApi.addMethod("POST", new apigw.LambdaIntegration(postToCartLambda));
