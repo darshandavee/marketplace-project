@@ -118,7 +118,7 @@ export const postUsersHandler = async (event, context) => {
   try {
     // Later: parse event.body and actually insert into DB using runQuery.
     // For now, return a static payload.
-    return jsonResponse(200, {
+    return jsonResponse(201, {
       status: 'User created successfully',
       user: {
         user_id: 'userId',
