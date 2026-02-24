@@ -14,21 +14,20 @@ import TimePortal from "./components/TimePortal";
 import Signup from "./components/Signup";
 import PasswordReset from "./components/passwordreset";
 import SellItem from "./pages/SellItem";
-
+import Homepage from "./components/TimePortal.jsx"
 
 const App = () => {
   return (
     <Routes>
     {/* Layout route */}
     <Route path="/" element={<Layout />}>
-     <Route index element={<Carousel/>} />
+     <Route index element={<Homepage />} />
      <Route path="login" element={<Login />} />
      <Route path="signup" element={<Signup />} />
      <Route path="PasswordReset" element={<PasswordReset />} />   
       <Route path="product" element={<ProductCatalogue />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
       {/* /:id is for each of the product ids - for the individual pages*/}
-      <Route path="time-portal" element={<TimePortal />} />
       <Route path="sell" element={<SellItem />} />
       <Route path="contact-us" element={<ContactUs />} />
       <Route path="*" element={<Error />} />
