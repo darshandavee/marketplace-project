@@ -17,6 +17,7 @@ import * as route53 from 'aws-cdk-lib/aws-route53'
 import * as lambda from 'aws-cdk-lib/aws-lambda'
 import * as nodejs from 'aws-cdk-lib/aws-lambda-nodejs'
 import * as apigw from 'aws-cdk-lib/aws-apigateway'
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb'
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -110,6 +111,27 @@ export class CdkStack extends Stack {
     })
 
     // ----------------------------------
+    // DynamoDB tables
+    // ----------------------------------
+
+    // Users table (one row per user)
+    const usersTable = new dynamodb.Table(this, 'users-table', {
+      tableName: `${props.subDomain}-users`,
+      partitionKey: { name: 'email', type: dynamodb.AttributeType.STRING },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+      removalPolicy: cdk.RemovalPolicy.DESTROY
+    })
+
+    // Cart table (many items per user)
+    const cartTable = new dynamodb.Table(this, 'cart-table', {
+      tableName: `${props.subDomain}-cart`,
+      partitionKey: { name: 'email', type: dynamodb.AttributeType.STRING },
+      sortKey: { name: 'productId', type: dynamodb.AttributeType.STRING },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+      removalPolicy: cdk.RemovalPolicy.DESTROY
+    })
+
+    // ----------------------------------
     // S3 buckets
     // ----------------------------------
 
@@ -199,12 +221,22 @@ export class CdkStack extends Stack {
     const lambdaEnvVars = {
       NODE_ENV: 'production',
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
+    
+      // Aurora
       DB_NAME: props.dbName,
-      // When we add in a DB you can uncomment these 
       CLUSTER_ARN: cluster.clusterArn,
       SECRET_ARN: cluster.secret?.secretArn || 'NOT_SET',
+    
+      // Static assets
       STATIC_IMAGES_BUCKET: staticImagesBucket.bucketName,
-      STATIC_IMAGES_BASE_URL: `https://${staticImagesInS3Domain}`
+      STATIC_IMAGES_BASE_URL: `https://${staticImagesInS3Domain}`,
+    
+      // DynamoDB – users
+      DYNAMO_TABLE_NAME: usersTable.tableName,
+      DYNAMO_REGION: cdk.Stack.of(this).region,
+    
+      // DynamoDB – cart
+      CART_TABLE_NAME: cartTable.tableName
     }
 
     // ----------------------------------
@@ -246,34 +278,31 @@ export class CdkStack extends Stack {
         FEATURED_PRODUCT: ''
       }
     })
-
-    // sign up
-    const postUsersLambda = new lambda.Function(this, 'post-users-lambda', {
-      functionName: `${props.subDomain}-post-users-lambda`,
-      runtime: lambda.Runtime.NODEJS_22_X,
-      handler: 'utility-functions.postUsersHandler',
-      code: lambda.Code.fromAsset('functions'),
-      environment: lambdaEnvVars
-    })
-
-    //login 
-
-    const loginLambda = new nodejs.NodejsFunction(this, 'login-lambda', {
-      functionName: `${props.subDomain}-login-lambda`,
-      runtime: lambda.Runtime.NODEJS_22_X,
-      handler: 'utility-functions.loginHandler',
-      code: lambda.Code.fromAsset('functions'),
-      environment: lambdaEnvVars
-    })
-
+    
     // Grant Lambdas that need it access to the Aurora Data API
-
+    
     cluster.grantDataApiAccess(productCatalogLambda)
     cluster.grantDataApiAccess(postProductLambda)
     cluster.grantDataApiAccess(bootstrapLambda)
     
-   
-    // Add to cart lambdas that will use DynamoDB
+    // Sign up, log in and add to cart lambdas that will use DynamoDB
+    // sign up
+    const postUsersLambda = new lambda.Function(this, 'post-users-lambda', {
+      functionName: `${props.subDomain}-post-users-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: 'users.postUsersHandler',
+      code: lambda.Code.fromAsset('functions'),
+      environment: lambdaEnvVars
+    })
+
+    // log in
+    const loginLambda = new lambda.Function(this, 'login-lambda', {
+      functionName: `${props.subDomain}-login-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: 'users.loginHandler',
+      code: lambda.Code.fromAsset('functions'),
+      environment: lambdaEnvVars
+    })
 
     const postToCartLambda = new lambda.Function(this, "post-tocart-lambda", {
       functionName: `${props.subDomain}-post-tocart-lambda`,
@@ -298,6 +327,16 @@ export class CdkStack extends Stack {
       code: lambda.Code.fromAsset('functions'),
       environment: lambdaEnvVars
     });
+
+    // DynamoDB permissions
+    // Users table
+    usersTable.grantReadWriteData(postUsersLambda)
+    usersTable.grantReadData(loginLambda)
+
+    // Cart table
+    cartTable.grantReadWriteData(postToCartLambda)
+    cartTable.grantReadWriteData(getToCartLambda)
+    cartTable.grantReadWriteData(deleteFromCartLambda)
 
     // ----------------------------------
     // API Gateway
