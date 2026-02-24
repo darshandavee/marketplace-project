@@ -6,29 +6,25 @@ import "./ProductCatalogue.css";
 
 export default function ProductCatalogue() {
   const [products, setProducts] = useState([]);
-  const [selectedEra, setSelectedEra] = useState("");
   const [loading, setLoading] = useState(true);
+  const [selectedEra, setSelectedEra] = useState("");
 
   useEffect(() => {
     fetch("/api/products")
       .then(res => res.json())
       .then(data => {
-        setProducts(data.products);
+        setProducts(data.products || []); 
         setLoading(false);
       })
       .catch(err => {
-        console.error("Failed to load products:", err);
         setLoading(false);
       });
   }, []);
 
   const allEras = [...new Set(products.map(p => p.era))];
-
   const filteredProducts = selectedEra
     ? products.filter(p => p.era === selectedEra)
     : products;
-
-  if (loading) return <h2>Loading products...</h2>;
 
   return (
     <div className="app">
@@ -56,3 +52,4 @@ export default function ProductCatalogue() {
     </div>
   );
 }
+
