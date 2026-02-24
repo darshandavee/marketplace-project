@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import TimePortal from "./components/TimePortal";
 import Signup from "./components/Signup";
 import PasswordReset from "./components/passwordreset";
+import Cart from "./components/Cart";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
       {/* /:id is for each of the product ids - for the individual pages*/}
       <Route path="time-portal" element={<TimePortal />} />
       <Route path="contact-us" element={<ContactUs />} />
+      <Route path="cart" element={<Cart />} />
       <Route path="*" element={<Error />} />
       
       
