@@ -37,7 +37,13 @@ export default function ProductCatalogue() {
       <div className="product-row">
         {filteredProducts.map(product => (
           <Link key={product.id} to={`/product/${product.id}`}>
-            <ProductCard product={product} />
+            <ProductCard 
+              product={product}
+              image={product.image}
+              title={product.title}
+              price={product.price_credit}
+              description={product.description}
+              era={product.era} />
           </Link>
         ))}
       </div>
