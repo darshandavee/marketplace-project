@@ -221,7 +221,6 @@ export class CdkStack extends Stack {
     const bootstrapLambda = new lambda.Function(this, 'bootstrap-lambda', {
       functionName: `${props.subDomain}-bootstrap-lambda`,
       runtime: lambda.Runtime.NODEJS_22_X,
-      entry: 'functions/utility-functions.js',
       handler: 'utility-functions.bootstrapHandler',
       code: lambda.Code.fromAsset('functions'),
       environment: lambdaEnvVars
@@ -232,7 +231,6 @@ export class CdkStack extends Stack {
      const postProductLambda = new lambda.Function(this, 'post-product-lambda', {
       functionName: `${props.subDomain}-post-product-lambda`,
       runtime: lambda.Runtime.NODEJS_22_X,
-      entry: 'functions/utility-functions.js',
       handler: 'utility-functions.postProductHandler',
       code: lambda.Code.fromAsset('functions'),
       environment: lambdaEnvVars
