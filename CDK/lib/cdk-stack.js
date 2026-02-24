@@ -195,10 +195,11 @@ export class CdkStack extends Stack {
     // ----------------------------------
     // Lambda bundling
     // ----------------------------------
-    const bundling = {
-      externalModules: ['aws-sdk'],
-      nodeModules: ['data-api-client']
-    }
+    // const bundling = {
+    //   externalModules: ['aws-sdk'],
+    //   nodeModules: ['data-api-client'],
+    //   forceDockerBundling: true
+    // }
 
 
 
@@ -240,6 +241,39 @@ export class CdkStack extends Stack {
       entry: 'functions/utility-functions.js',
       handler: 'postProductHandler',
       bundling,
+    // Write your other lambdas into here
+
+    // Colin has added some basic lambda's in here. Need to change the params to make them fit the 
+    // requirements... (these are taken from the Bakehouse) 
+
+    // WILL CHANGES 
+    // health check
+    const healthcheckLambda = new lambda.Function(this, 'health-check-lambda', {
+      functionName: `${props.subDomain}-health-check-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: 'health-check.healthcheckHandler',
+      code: lambda.Code.fromAsset('functions'),
+      environment: lambdaEnvVars
+    })
+
+    // product catalogue
+    const productCatalogLambda = new lambda.Function(this, 'product-catalog-lambda', {
+      functionName: `${props.subDomain}-product-catalog-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: 'utility-functions.productCatalogHandler',
+      code: lambda.Code.fromAsset('functions'),
+      environment: {
+        ...lambdaEnvVars,
+        FEATURED_PRODUCT: ''
+      }
+    })
+
+    // sign up
+    const postUsersLambda = new lambda.Function(this, 'post-users-lambda', {
+      functionName: `${props.subDomain}-post-users-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: 'utility-functions.postUsersHandler',
+      code: lambda.Code.fromAsset('functions'),
       environment: lambdaEnvVars
     })
 
@@ -258,6 +292,31 @@ export class CdkStack extends Stack {
     cluster.grantDataApiAccess(productCatalogLambda)
     cluster.grantDataApiAccess(postProductLambda)
    
+// ADD TO CART LAMBDA 
+    // FAVOURITES
+    const postToCartLambda = new lambda.Function(this, "post-tocart-lambda", {
+      functionName: `${props.subDomain}-post-tocart-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: "addToCart.js/postToCartHandler",
+      code: lambda.Code.fromAsset('functions'),
+      environment: lambdaEnvVars
+    });
+
+    const getToCartLambda = new lambda.Function(this, "get-tocart-lambda", {
+      functionName: `${props.subDomain}-get-tocart-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: "addToCart.js/getToCartHandler",
+      code: lambda.Code.fromAsset('functions'),
+      environment: lambdaEnvVars
+    });
+
+    const deleteFromCartLambda = new lambda.Function(this, "delete-fromcart-lambda", {
+      functionName: `${props.subDomain}-delete-fromcart-lambda`,
+      runtime: lambda.Runtime.NODEJS_22_X,
+      handler: "addToCart.js/deleteFromCartHandler",
+      code: lambda.Code.fromAsset('functions'),
+      environment: lambdaEnvVars
+    });
 
     // ----------------------------------
     // API Gateway
@@ -299,6 +358,13 @@ export class CdkStack extends Stack {
     productsApi.addMethod('GET', new apigw.LambdaIntegration(productCatalogLambda))
     productsApi.addMethod('POST', new apigw.LambdaIntegration(postProductLambda))
 
+    const usersApi = api.root.addResource('users')
+    usersApi.addMethod('POST', new apigw.LambdaIntegration(postUsersLambda))
+
+    const addToCartApi = api.root.addResource("addtocart");
+    addToCartApi.addMethod("GET", new apigw.LambdaIntegration(getToCartLambda));
+    addToCartApi.addMethod("POST", new apigw.LambdaIntegration(postToCartLambda));
+    addToCartApi.addMethod("DELETE", new apigw.LambdaIntegration(deleteFromCartLambda));
     // ----------------------------------
     // CloudFront distributions
     // ----------------------------------

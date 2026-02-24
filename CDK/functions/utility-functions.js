@@ -1,4 +1,5 @@
-import { runQuery, bootstrapDatabase } from "./db.js";
+// functions/utility-functions.js
+import { runQuery, bootstrapDatabase } from './db.js';
 
 // Small helper to keep responses consistent
 function jsonResponse(statusCode, payload) {
@@ -8,12 +9,21 @@ function jsonResponse(statusCode, payload) {
   };
 }
 
+// Normalise the result from data-api-client / RDS Data API
+const normaliseRows = (result) => {
+  if (!result) return [];
+  if (Array.isArray(result)) return result;
+  if (Array.isArray(result.rows)) return result.rows;
+  if (Array.isArray(result.records)) return result.records;
+  return [];
+};
+
 const logInvocationDetails = (event, context) => {
-  console.log("Event received:");
+  console.log('Event received:');
   console.log(JSON.stringify(event, null, 2));
 
   if (context) {
-    console.log("Context received:");
+    console.log('Context received:');
     console.log({
       functionName: context.functionName,
       functionVersion: context.functionVersion,
@@ -24,7 +34,7 @@ const logInvocationDetails = (event, context) => {
 };
 
 // -------------------------
-// BOOTSTRAP HANDLER
+// BOOTSTRAP HANDLER (optional)
 // -------------------------
 export const bootstrapHandler = async (event, context) => {
   logInvocationDetails(event, context);
@@ -33,15 +43,15 @@ export const bootstrapHandler = async (event, context) => {
     const code = await bootstrapDatabase();
 
     return jsonResponse(code, {
-      status: "ok",
-      message: "Database reset and seeded with sample bakehouse data"
+      status: 'ok',
+      message: 'Database reset and seeded with sample timeazon data'
     });
   } catch (err) {
-    console.error("bootstrapHandler error:", err);
+    console.error('bootstrapHandler error:', err);
 
     return jsonResponse(500, {
-      status: "error",
-      message: "Failed to bootstrap database"
+      status: 'error',
+      message: 'Failed to bootstrap database'
     });
   }
 };
