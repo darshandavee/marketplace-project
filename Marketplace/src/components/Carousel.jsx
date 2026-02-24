@@ -21,13 +21,22 @@ export default function Carousel() {
 
       <div className="scroll-container" ref={scrollRef}>
         <div className="scroll-item item-1">
-          <span><img src="./static-images/playfry5.jpg"></img></span>
+          <span><img src="./static-images/toasterShoe.jpg"></img></span>
         </div>
         <div className="scroll-item item-2">
-          <span><img src="./static-images/RolexDayDate.png"></img></span>
+          <span><img src="./static-images/HeroditusSandals.png"></img></span>
         </div>
         <div className="scroll-item item-3">
           <span><img src="./static-images/temporalStabiliser.jpg"></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src="./static-images/almanac.jpg"></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src="./static-images/antikytheraMechanism.png"></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src="./static-images/watch.jpg"></img></span>
         </div>
       </div>
 
