@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 77px auto;
+  margin: 0;
   width: 100%;
 }
 
@@ -11,7 +11,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 16px;
-  width: 600px;
+  width: 100%;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -19,14 +19,15 @@
 }
 
 .scroll-item {
-  min-width: 250px;
-  height: 150px;
+  max-width: 400px;
+  height: 500px;
   background: lightgray;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow:hidden;
   flex-shrink: 0;
-  border-radius: 8px;
+ 
 }
 
 .scroll-btn {
