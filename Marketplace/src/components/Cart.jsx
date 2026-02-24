@@ -1,16 +1,11 @@
-import React from 'react';
+import React from "react";
 import "./Cart.css";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
 
-const Cart = () => {
+export default function Cart() {
   return (
-      <div className="cart-page">
-        <h1>Cart Test Page</h1>
-
-</div>
-);
-};
-
-export default Cart;
-
+    <div style={{ padding: 24 }}>
+      <h1>Cart</h1>
+      <p>This is the cart page.</p>
+    </div>
+  );
+}

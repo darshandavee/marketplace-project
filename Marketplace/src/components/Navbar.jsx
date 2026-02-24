@@ -27,10 +27,12 @@ const Navbar = () => {
       </div>
 
       {/* Cart Button */}
-      <div className="cart">
+      <NavLink to={"/Cart"}>
+      <div className="cart-link">
         <img src="/shoppingCart.png" alt="Cart" />
         <span className="cart-count">0</span>
       </div>
+      </NavLink>
     </div>
   );
 };

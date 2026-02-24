@@ -69,17 +69,6 @@ body {
 }
 
 /* Cart button */
-.cart {
-    margin-left: 20px;
-    position: relative;
-    cursor: pointer;
-}
-
-.cart img {
-    width: 28px;
-    height: 28px;
-}
-
 .cart-count {
     position: absolute;
     top: -6px;
@@ -92,7 +81,16 @@ body {
     border-radius: 50%;
 }
 
-.cart:hover img {
+.cart-link:hover img {
     transform: scale(1.1);
     transition: 0.2s ease;
+}
+
+.cart-link img {
+width: 30px;
+height: 30px;
+object-fit: contain;
+margin-left: 20px;
+position: relative;
+cursor: pointer;
 }
