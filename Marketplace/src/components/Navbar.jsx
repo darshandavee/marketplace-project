@@ -31,9 +31,7 @@ const Navbar = () => {
         <img src="/shoppingCart.png" alt="Cart" />
         <span className="cart-count">0</span>
       </div>
-    </div>
+  </div>
   );
 };
-
-
 export default Navbar;
