@@ -35,13 +35,17 @@ export default function Homepage(props) {
             />
           ))}
         </div>
+        
 
         <div className="hero-title">
           <h2>Featured Products</h2>
         </div>
         <Carousel ></Carousel>
+        <div className="footer-text">
+          Timeazon is monitored and regulated by the Department for Temporal Stability.
+        </div>
       </div>
     );
+
 }
 
-//testing comment
