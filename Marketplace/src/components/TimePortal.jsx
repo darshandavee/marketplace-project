@@ -1,5 +1,6 @@
 import Carousel from "./Carousel";
 import HomePageCard from "./Homepagecard";
+import { Link } from "react-router-dom";
 
 export default function Homepage(props) {
   const homepageItems = [
@@ -24,11 +25,16 @@ export default function Homepage(props) {
       <div className="app">
         <div className="homepage-row">
           {homepageItems.map((item) => (
-            <HomePageCard
+           <Link 
+              key={item.id} 
+              to={`/product?filter=${item.title.split(' ')[1].toLowerCase()}`} 
+              style={{ textDecoration: 'none', color: 'inherit' }}> 
+              <HomePageCard
               key={item.id}
               image={item.image}
               title={item.title}
-            />
+              />
+          </Link>
           ))}
         </div>
         

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SellItem.css"
 
 export default function SellItem() {
   const [form, setForm] = useState({
@@ -117,10 +118,10 @@ export default function SellItem() {
   };
 
   return (
-    <div>
-      <h2>Sell an Item</h2>
+    <div className="sellItem">
+      <h2 className="sellTitle">Sell an Item</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form className="addItemForm" onSubmit={handleSubmit}>
         <input
           name="name"
           placeholder="Name"
@@ -145,20 +146,27 @@ export default function SellItem() {
           required
         />
 
-        <input
+        <input className="uploadImage"
           type="file"
           accept="image/*"
           onChange={handleFileChange}
         />
 
-        <input
-          name="era"
-          placeholder="Era"
-          value={form.era}
+        <select 
+          className="eraInput" 
+          name="era" 
+          value={form.era} 
           onChange={handleChange}
-        />
+          required
+        >
+          <option value="" disabled>Select Era</option>
+          <option value="past">Past</option>
+          <option value="present">Present</option>
+          <option value="future">Future</option>
+        </select>
+        
 
-        <button type="submit" disabled={uploading}>
+        <button className="sellButton" type="submit" disabled={uploading}>
           {uploading ? "Uploading image..." : "Post Product"}
         </button>
       </form>

@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import EraSelect from "../components/EraSelect";
 import "./ProductCatalogue.css";
+import { useSearchParams } from "react-router-dom";
 
 export default function ProductCatalogue() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedEra, setSelectedEra] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const selectedEra = searchParams.get("filter") || "";
 
   useEffect(() => {
     fetch("/api/products")
@@ -28,12 +31,18 @@ export default function ProductCatalogue() {
 
     
   return (
-    <div className="app">
-      <EraSelect
-        eras={allEras}
-        selected={selectedEra}
-        onChange={setSelectedEra}
-      />
+      <div className="app">
+        <EraSelect
+    eras={allEras}
+    selected={selectedEra}
+    onChange={(value) => {
+      if (value) {
+        setSearchParams({ filter: value });
+      } else {
+        setSearchParams({});
+      }
+    }}
+    />
       <h1>Featured Products</h1>
 
       <div className="product-row">
@@ -49,12 +58,6 @@ export default function ProductCatalogue() {
           </Link>
         ))}
       </div>
-
-      <EraSelect
-        eras={allEras}
-        selected={selectedEra}
-        onChange={setSelectedEra}
-      />
     </div>
   );
 }
