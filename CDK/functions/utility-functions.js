@@ -187,6 +187,69 @@ export const postProductHandler = async (event) => {
   }
 };
 
+export const deleteProductHandler = async (event) => {
+  try {
+    const id =event.pathParameters?.id;
+
+    if (!id) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          status: "error"
+          message: "Product Id is required"
+        })
+      };
+    }
+  
+  const deleteSQL = `
+    DELETE FROM product
+    WHERE id = :id
+    RETURNING id, name, description, price_credit, image_url, era   
+    `;
+
+  const result = await runQuery(deleteSQL, { 
+    id 
+  });
+
+  const product = 
+    result?.records?.[0] ||
+    result?.rows?.[0];
+
+  if (!product) {
+    return {
+      statusCode: 404,
+      body: JSON.stringify({
+        status: "error",
+        message: "Product not found"
+      })
+    };
+  }
+  
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      status: "deleted",
+      product
+    })
+  };
+
+} catch (error) {
+    console.error("Error creating product:", error);
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        status: "error",
+        message: "Could not create product"
+      })
+    };
+  }
+};
+
+
+
+
+
   //Signup 
   export const postUsersHandler = async (event, context) => {
   logInvocationDetails(event, context);
@@ -276,5 +339,4 @@ export const loginHandler = async (event, context) => {
     });
   }
 };
-
 
