@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { BackButton } from "./BackButton.jsx";
-import DeleteProdButton from "./DeleteProdButton.jsx";
+// import DeleteProdButton from "./DeleteProdButton.jsx";
 import "./ProductPage.css"
 
 export default function ProductPage({ products }) {
