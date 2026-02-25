@@ -70,7 +70,6 @@ body {
 
 /* Cart button */
 .cart-count {
-    position: absolute;
     top: -6px;
     right: -8px;
     background: #ff3b3b;
