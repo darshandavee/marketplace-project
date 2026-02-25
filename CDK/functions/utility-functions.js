@@ -195,7 +195,7 @@ export const deleteProductHandler = async (event) => {
       return {
         statusCode: 400,
         body: JSON.stringify({
-          status: "error"
+          status: "error",
           message: "Product Id is required"
         })
       };
