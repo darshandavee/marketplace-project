@@ -44,7 +44,7 @@ const Login = () => {
 
       // redirect after login
       setTimeout(() => {
-        navigate("/time-portal");
+        navigate("/Homepage");
       }, 800);
     } catch (error) {
       setMessage(error.message);

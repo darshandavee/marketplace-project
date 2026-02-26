@@ -66,7 +66,7 @@ const Navbar = () => {
     window.dispatchEvent(new Event("authChanged"));
     window.dispatchEvent(new Event("cartUpdated"));
     // optional redirect
-    window.location.href = "/time-portal";
+    window.location.href = "/Homepage";
   };
 
   return (
