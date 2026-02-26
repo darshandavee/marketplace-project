@@ -13,6 +13,11 @@ export default function ProductPage({ products }) {
     return <h2>Product not found</h2>;
   }
 
+  const s3domain = "https://timeazon-static-images.s3.eu-west-2.amazonaws.com";
+
+  const imageUrl = `${s3domain}/${product.image_url}`;
+
+
   const handleAddToCart = async () => {
     const email = sessionStorage.getItem("userEmail");
   
@@ -52,7 +57,7 @@ export default function ProductPage({ products }) {
       <BackButton className="productPageBackButton" />
 
       <div className="pageImage">
-        <img src={product.image} className="productPageImage" alt={product.title} />
+        <img src={imageUrl} className="productPageImage" alt={product.title} />
       </div>
 
       <div className="productDetails">

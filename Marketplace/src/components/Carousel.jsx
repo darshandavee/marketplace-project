@@ -33,7 +33,7 @@ export default function Carousel() {
           <span><img src="./static-images/almanac.jpg"></img></span>
         </div>
         <div className="scroll-item item-3">
-          <span><img src="./static-images/antikytheraMechanism.png"></img></span>
+          <span><img src="https://timeazon-static-images.s3.eu-west-2.amazonaws.com/antikytheraMechanism.png"></img></span>
         </div>
         <div className="scroll-item item-3">
           <span><img src="./static-images/watch.jpg"></img></span>
