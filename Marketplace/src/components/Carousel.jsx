@@ -11,7 +11,20 @@ export default function Carousel() {
     } else {
       current.scrollBy({ left: 300, behavior: "smooth" });
     }
+
+
   };
+const s3domain = "https://timeazon-static-images.s3.eu-west-2.amazonaws.com";
+
+const imageUrl1 = `${s3domain}/toasterShoe.jpg`;
+const imageUrl2 = `${s3domain}/HeroditusSandals.png`;
+const imageUrl3 = `${s3domain}/atgSword.jpg`;
+const imageUrl4 = `${s3domain}/temporalStabiliser.jpg`;
+const imageUrl5 = `${s3domain}/almanac.jpg`;
+const imageUrl6 = `${s3domain}/playfry5.jpg`;
+const imageUrl7 = `${s3domain}/magnaCarta.png`;
+const imageUrl8 = `${s3domain}/MedievalFireStratingKit.png`;
+const imageUrl9 = `${s3domain}/watch.jpg`;
 
   return (
     <div className="carousel-wrapper">
@@ -21,22 +34,31 @@ export default function Carousel() {
 
       <div className="scroll-container" ref={scrollRef}>
         <div className="scroll-item item-1">
-          <span><img src="./static-images/toasterShoe.jpg"></img></span>
+          <span><img src={imageUrl1}></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src={imageUrl2}></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src={imageUrl3}></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src={imageUrl4}></img></span>
+        </div>
+        <div className="scroll-item item-3">
+          <span><img src={imageUrl5}></img></span>
         </div>
         <div className="scroll-item item-2">
-          <span><img src="./static-images/HeroditusSandals.png"></img></span>
+          <span><img src={imageUrl6}></img></span>
         </div>
-        <div className="scroll-item item-3">
-          <span><img src="./static-images/temporalStabiliser.jpg"></img></span>
+        <div className="scroll-item item-2">
+          <span><img src={imageUrl7}></img></span>
         </div>
-        <div className="scroll-item item-3">
-          <span><img src="./static-images/almanac.jpg"></img></span>
+        <div className="scroll-item item-2">
+          <span><img src={imageUrl8}></img></span>
         </div>
-        <div className="scroll-item item-3">
-          <span><img src="https://timeazon-static-images.s3.eu-west-2.amazonaws.com/antikytheraMechanism.png"></img></span>
-        </div>
-        <div className="scroll-item item-3">
-          <span><img src="./static-images/watch.jpg"></img></span>
+        <div className="scroll-item item-2">
+          <span><img src={imageUrl9}></img></span>
         </div>
       </div>
 
