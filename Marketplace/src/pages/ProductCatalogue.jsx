@@ -44,7 +44,7 @@ export default function ProductCatalogue() {
       }
     }}
     />
-      <h1>Featured Products</h1>
+      
 
       <div className="product-row">
         {filteredProducts.map(product => (
