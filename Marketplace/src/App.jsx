@@ -8,12 +8,13 @@ import Carousel from "./components/Carousel";
 import Error from "./components/Error"
 import ContactUs from "./components/ContactUs";
 import Login from "./components/Login";
-import TimePortal from "./components/TimePortal";
+// import TimePortal from "./components/TimePortal";
 import Signup from "./components/Signup";
 import PasswordReset from "./components/passwordreset";
 import SellItem from "./pages/SellItem";
-import Homepage from "./components/TimePortal.jsx"
+import Homepage from "./components/Homepage.jsx"
 import { useEffect, useState } from "react";
+import Cart from "./components/Cart.jsx";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -29,15 +30,16 @@ function App() {
     <Routes>
     {/* Layout route */}
     <Route path="/" element={<Layout />}>
-     <Route index element={<TimePortal />} />
+     <Route index element={<Homepage />} />
      <Route path="login" element={<Login />} />
      <Route path="signup" element={<Signup />} />
      <Route path="PasswordReset" element={<PasswordReset />} />   
       <Route path="product" element={<ProductCatalogue products={products} />} />
       <Route path="product/:id" element={<ProductPage products={products} />} />
-      <Route path="time-portal" element={<TimePortal />} />
+      <Route path="Homepage" element={<Homepage />} />
       {/* /:id is for each of the product ids - for the individual pages*/}
       <Route path="sell" element={<SellItem />} />
+      <Route path="cart" element={<Cart />} />
       <Route path="contact-us" element={<ContactUs />} />
       <Route path="*" element={<Error />} />
       

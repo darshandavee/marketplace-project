@@ -32,6 +32,7 @@ export default function ProductCatalogue() {
     
   return (
       <div className="app">
+        <h1 className="shop-title">Time Machine Market</h1>
         <EraSelect
     eras={allEras}
     selected={selectedEra}
@@ -58,6 +59,7 @@ export default function ProductCatalogue() {
           </Link>
         ))}
       </div>
+
     </div>
   );
 }

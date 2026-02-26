@@ -325,7 +325,7 @@ export const deleteProductHandler = async (event) => {
     if (!user_id || !name || !username || !email) {
       return jsonResponse(400, {
         status: 'error',
-        message: 'user_id, name, username, and email are required'
+        message: 'username, email and password are required'
       });
     }
 
