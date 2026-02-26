@@ -39,3 +39,29 @@
   .cart-remove-button{
     color: #00ffff;
   }
+
+
+
+.cart-message::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  filter: blur(25px);
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.cart-message {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  color: #ffffff;
+  -webkit-text-stroke: 2px #000;
+
+  text-shadow:
+    0 0 12px rgba(0, 255, 255, 0.8),
+    0 0 24px rgba(255, 0, 200, 0.6);
+}

@@ -85,9 +85,9 @@ export default function Cart() {
     }
   };
 
-  if (!email) return <h2>Please log in to see your cart.</h2>;
+  if (!email) return <h2 className="cart-message">Please log in to see your cart.</h2>;
   if (loading) return <h2>Loading cart...</h2>;
-  if (cartItems.length === 0) return <h2>Your cart is empty</h2>;
+  if (cartItems.length === 0) return <h2 className="cart-message">Your cart is empty</h2>;
 
   // join cart items to full product details
   const itemsWithProduct = cartItems
@@ -99,7 +99,7 @@ export default function Cart() {
 
   return (
     <div className="cart-page">
-      <h2>Your Cart</h2>
+      <h2 className="cart-message">Your Cart</h2>
 
       <div className="cart-grid">
         {itemsWithProduct.map((item) => (
