@@ -37,10 +37,9 @@
     color: white;
   }
   .cart-remove-button{
-    color: #00ffff;
+    color: black;
+    
   }
-
-
 
 .cart-message::before {
   content: "";

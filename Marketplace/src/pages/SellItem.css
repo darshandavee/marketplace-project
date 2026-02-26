@@ -7,7 +7,7 @@
   box-shadow: 0 0 20px rgba(0, 191, 255, 0.15);
   position: relative;
   overflow: hidden;
-  color:#f1feff
+  color: black;
 }
 
 .sell-container::before {
